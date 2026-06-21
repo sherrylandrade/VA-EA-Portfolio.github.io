@@ -1,7 +1,187 @@
-<h1>Sherryl Andrade</h1>
-    <p>Assistant Project Manager</p>
-    
-    <!-- This new bio block aligns with your professional resume summary -->
-    <div class="bio">
-        Organized and detail-oriented Assistant Project Manager with experience tracking timelines, managing cross-functional tasks, and delivering project milestones. Passionate about bringing clarity to complex workflows.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sherryl Andrade | Assistant Project Manager Portfolio</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            background-color: #0b1516;
+            color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* Responsive Main Dashboard Container */
+        .dashboard-container {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 850px) {
+            .dashboard-container { grid-template-columns: 1fr; }
+        }
+
+        /* Left Side: Profile Card */
+        .profile-sidebar {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            position: sticky;
+            top: 40px;
+        }
+
+        .profile-sidebar h1 {
+            font-size: 2rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .profile-sidebar .title-badge {
+            font-size: 0.85rem;
+            color: #2dd4bf;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .profile-sidebar .bio {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+            background: #14b8a6;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            margin-bottom: 12px;
+        }
+
+        .btn:hover { background: #0d9488; transform: translateY(-2px); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
+
+        /* Right Side: Project Grid Section */
+        .content-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            color: #ffffff;
+            letter-spacing: -0.3px;
+            margin-bottom: 5px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* Premium Glass Project Card */
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: rgba(45, 212, 191, 0.4);
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        /* Visual placeholder styling for your screenshots */
+        .project-image-placeholder {
+            height: 180px;
+            background: linear-gradient(135deg, #0f2b2d 0%, #1c4e52 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2dd4bf;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-info { padding: 20px; }
+        .project-info h3 { font-size: 1.1rem; color: #ffffff; margin-bottom: 6px; }
+        .project-info p { font-size: 0.9rem; color: #94a3b8; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <!-- Left Column: Header Info -->
+        <div class="profile-sidebar">
+            <h1>Sherryl Andrade</h1>
+            <div class="title-badge">Assistant Project Manager</div>
+            <div class="bio">
+                Organized and detail-oriented Assistant Project Manager with experience tracking timelines, managing cross-functional tasks, and delivering project milestones. Passionate about bringing clarity to complex workflows.
+            </div>
+            <a href="https://www.linkedin.com/in/sherrylandrade/" target="_blank" class="btn">Connect on LinkedIn</a>
+            <a href="mailto:sherryl.andrade@gmail.com" class="btn btn-secondary">Email Me</a>
+        </div>
+
+        <!-- Right Column: Case Studies & Project Grid -->
+        <div class="content-section">
+            <h2 class="section-title">Featured Project Deliverables</h2>
+            <div class="project-grid">
+                
+                <!-- Card 1 -->
+                <div class="project-card">
+                    <div class="project-image-placeholder">UI/UX WIREFRAMES</div>
+                    <div class="project-info">
+                        <h3>App Interface Architecture</h3>
+                        <p>Detailed system wireframes and layout structures mapped out to align development sprints with core user experience flows.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="project-card">
+                    <div class="project-image-placeholder">MANAGEMENT DASHBOARDS</div>
+                    <div class="project-info">
+                        <h3>Cross-Functional Workflows</h3>
+                        <p>Project execution metrics, data analytics charts, and operational views optimized for clear milestone tracking.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
+
+</body>
+</html>
