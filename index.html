@@ -262,6 +262,47 @@
     </nav>
 
     <!-- Split Screen Content -->
+    <div class="split-screen">
+        <div class="image-side">
+            <img src="avatar.jpg" alt="Sherryl Andrade">
+        </div>
+
+        <div class="content-side">
+            <div class="hero-title-container">
+                <div class="hero-title">My</div>
+                <div class="line-accent"></div>
+            </div>
+            <div class="hero-subtitle">Portfolio</div>
+            
+            <div class="role-badge">Freelance Virtual Assistant</div>
+
+            <div class="hero-description">
+                High-level administrative and operational support backed by deep expertise in Assistant Project Management. I help busy executives and teams streamline cross-functional workflows, safeguard system redundancies, organize platforms, and execute critical milestones with flawless precision.
+            </div>
+
+            <div class="action-group">
+                <button class="btn-explore" onclick="toggleMenu()">Explore Now</button>
+            </div>
+
+            <div class="page-indicator">Page | 01</div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Menu Navigation Box -->
+    <div class="menu-overlay" id="customMenu">
+        <button class="close-menu" onclick="toggleMenu()">×</button>
+        <div class="menu-links">
+            <a href="#about" onclick="toggleMenu()">About Me</a>
+            <a href="#services" onclick="toggleMenu()">Core Services</a>
+            <a href="#skills" onclick="toggleMenu()">Skills</a>
+            <a href="#tools" onclick="toggleMenu()">Tools & Platforms</a>
+            <a href="#experience" onclick="toggleMenu()">Work Experience</a>
+            <a href="#testimonials" onclick="toggleMenu()">Client Testimonials</a>
+            <a href="#feedback" onclick="toggleMenu()">Customer Feedback</a>
+            <a href="#certificates" onclick="toggleMenu()">Certificates</a>
+            <a href="#infrastructure" onclick="toggleMenu()">Technical Infrastructure & Redundancy</a>
+        </div>
+    </div>
     <!-- Section 2: About Me (Exact Mirror of image_35bb9d.jpg Layout) -->
     <div id="about" style="background-color: #1c1d1f; min-height: 100vh; width: 100vw; display: flex; align-items: center; padding: 100px 8%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03);">
         
@@ -307,24 +348,6 @@
 
         <!-- Custom Page Counter Bottom Right -->
         <div style="position: absolute; bottom: 40px; right: 40px; font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); letter-spacing: 1px;">Page | 02</div>
-    </div>
-        </div>
-    </div>
-
-    <!-- Fullscreen Menu Navigation Box -->
-    <div class="menu-overlay" id="customMenu">
-        <button class="close-menu" onclick="toggleMenu()">×</button>
-        <div class="menu-links">
-            <a href="#about" onclick="toggleMenu()">About Me</a>
-            <a href="#services" onclick="toggleMenu()">Core Services</a>
-            <a href="#skills" onclick="toggleMenu()">Skills</a>
-            <a href="#tools" onclick="toggleMenu()">Tools & Platforms</a>
-            <a href="#experience" onclick="toggleMenu()">Work Experience</a>
-            <a href="#testimonials" onclick="toggleMenu()">Client Testimonials</a>
-            <a href="#feedback" onclick="toggleMenu()">Customer Feedback</a>
-            <a href="#certificates" onclick="toggleMenu()">Certificates</a>
-            <a href="#infrastructure" onclick="toggleMenu()">Technical Infrastructure & Redundancy</a>
-        </div>
     </div>
 
     <script>
