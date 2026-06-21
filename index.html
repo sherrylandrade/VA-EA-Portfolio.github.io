@@ -580,19 +580,35 @@
                 <div style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
                     <h4 style="font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 0;">Performance Evidence</h4>
                     
-                    <div class="gallery-slider-box" style="position: relative; width: 100%;">
+                    <div class="gallery-slider-box" style="position: relative; width: 100%; padding-top: 20px;">
+                        
+                        <!-- Manual Navigation Buttons Positioned Upper Right Corner -->
+                        <div class="slider-controls" style="position: absolute; top: -45px; right: 0; display: flex; gap: 10px; z-index: 10;">
+                            <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: -1000, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid rgba(255,255,255,0.05); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 1rem;">⟵</button>
+                            <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: 1000, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid rgba(255,255,255,0.05); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 1rem;">⟶</button>
+                        </div>
+
                         <!-- Horizontal Scroll Wrapper -->
                         <div class="slider-scroll-track" id="galleryTrack" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 30px; scrollbar-width: none; -ms-overflow-style: none;">
                             
-                            <!-- CATEGORY 1: Client Commendations -->
+                            <!-- CATEGORY 1: Client Commendations Layout Adjustment -->
                             <div class="slider-node" style="flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 15px;">
                                 <div style="font-size: 1rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">1. Client Commendations</div>
-                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; background: #1c1d1f; padding: 25px; border-radius: 8px;">
-                                    <img src="commendation1.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 1">
-                                    <img src="commendation2.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 2">
-                                    <img src="commendation3.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 3">
-                                    <img src="commendation4.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 4">
-                                    <img src="commendation5.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); grid-column: span 2; box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 5">
+                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; background: #1c1d1f; padding: 25px; border-radius: 8px; align-items: start;">
+                                    <!-- Left Column Items (Horizontally aligned / stacked cleanly) -->
+                                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                                        <img src="commendation1.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 1">
+                                        <img src="commendation3.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 3">
+                                    </div>
+                                    <!-- Right Column Items -->
+                                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                                        <img src="commendation2.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 2">
+                                        <img src="commendation4.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 4">
+                                    </div>
+                                    <!-- Full span bottom block item -->
+                                    <div style="grid-column: span 2;">
+                                        <img src="commendation5.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 5">
+                                    </div>
                                 </div>
                                 <p style="font-size: 1rem; color: #a0a0a5; line-height: 1.6; margin: 0;">Direct operational logs and workspace team updates highlighting cross-functional leadership, problem-solving agility, and administrative praise.</p>
                             </div>
@@ -611,12 +627,13 @@
                                     <img src="feedback8.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 8">
                                     <img src="feedback9.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 9">
                                     <img src="feedback10.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 10">
+                                    <img src="feedback11.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 11">
                                     <img src="feedback12.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 12">
                                 </div>
                                 <p style="font-size: 1rem; color: #a0a0a5; line-height: 1.6; margin: 0;">Verified external user surveys and individual feedback milestones documenting timeline management adherence and user case satisfaction logs.</p>
                             </div>
 
-                            <!-- CATEGORY 3: KPI Metrics Data -->
+                            <!-- CATEGORY 3: KPI Metrics Data Size Uniformity Adjustments -->
                             <div class="slider-node" style="flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 15px;">
                                 <div style="font-size: 1rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">3. KPI Metrics Data</div>
                                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; background: #1c1d1f; padding: 25px; border-radius: 8px;">
@@ -632,12 +649,6 @@
                                 <p style="font-size: 1rem; color: #a0a0a5; line-height: 1.6; margin: 0;">Analytical dash performance logs, task accuracy scorecards, and system sync timeline validations demonstrating operational metrics tracking.</p>
                             </div>
 
-                        </div>
-
-                        <!-- Manual Navigation Buttons -->
-                        <div class="slider-controls" style="display: flex; gap: 15px; margin-top: 15px; justify-content: flex-end;">
-                            <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: -1000, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid rgba(255,255,255,0.05); color: #fff; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 1.1rem;">⟵</button>
-                            <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: 1000, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid rgba(255,255,255,0.05); color: #fff; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 1.1rem;">⟶</button>
                         </div>
                     </div>
                 </div>
