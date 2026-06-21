@@ -2,56 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Sherryl Andrade | Portfolio</title>
     <style>
+        /* Modern reset and background setup */
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0d3c3f;
+            background-color: #092527;
+            background-image: radial-gradient(circle at 80% 20%, #164e52 0%, transparent 40%);
             color: #ffffff;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
+        }
+
+        /* Glassmorphism Profile Card Container */
+        .profile-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px 50px;
+            border-radius: 24px;
             text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 350px;
+            width: 100%;
         }
+
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
+            font-size: 2.2rem;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.5px;
         }
+
         p {
-            font-size: 1.2rem;
-            color: #a0a0a0;
-            margin-bottom: 25px;
+            font-size: 1.05rem;
+            color: #8bb3b6;
+            margin: 0 0 30px 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
         }
+
+        /* Modernized Stacked Buttons */
         .links {
             display: flex;
-            gap: 15px;
+            flex-direction: column;
+            gap: 12px;
         }
+
         .links a {
             color: #ffffff;
             text-decoration: none;
-            background-color: #222222;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            transition: background 0.2s;
-            border: 1px solid #333333;
+            background: rgba(255, 255, 255, 0.07);
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        /* Premium Hover Interaction */
         .links a:hover {
-            background-color: #333333;
+            background: #ffffff;
+            color: #092527;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
 <body>
-    <h1>Sherryl Andrade</h1>
-    <p>Assistant Project Manager</p>
-    
-    <div class="links">
-        <!-- Change the URLs inside href="" to your actual links later if you want! -->
-        <a href="https://www.linkedin.com/in/sherrylandrade/" target="_blank">LinkedIn</a>
-        <a href="mailto:sherryl.andrade@gmail.com">Email Me</a>
+
+    <!-- This card creates the container design -->
+    <div class="profile-card">
+        <h1>Sherryl Andrade</h1>
+        <p>Assistant Project Manager</p>
+        
+        <div class="links">
+            <a href="https://www.linkedin.com/in/sherrylandrade/" target="_blank">LinkedIn</a>
+            <a href="mailto:sherryl.andrade@gnail.com">Email Me</a>
+        </div>
     </div>
+
 </body>
 </html>
