@@ -547,22 +547,22 @@
         <div style="position: absolute; bottom: 40px; right: 40px; font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); letter-spacing: 1px;">Page | 04</div>
     </div>
 
-    <!-- PAGE 5: Client Testimonials & Customer Feedback Section -->
+ <!-- PAGE 5: Client Testimonials & Customer Feedback Section -->
     <div id="testimonials" style="background-color: #121314; min-height: 100vh; width: 100vw; display: flex; align-items: center; padding: 120px 8% 80px 8%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03);">
-        <div style="width: 100%; max-width: 1200px; margin: 0 auto;">
+        <div style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 60px;">
             
             <!-- Section Header -->
-            <div style="margin-bottom: 60px;">
+            <div style="margin-bottom: 0;">
                 <h3 style="font-size: 0.85rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Social Proof</h3>
                 <h2 style="font-size: 4rem; font-weight: 700; letter-spacing: -2px; line-height: 1.1;">Testimonials</h2>
                 <div style="width: 80px; height: 2px; background-color: rgba(255, 255, 255, 0.2); margin-top: 20px;"></div>
             </div>
 
-            <!-- Layout Matrix -->
-            <div class="testimonial-layout" style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; align-items: start;">
+            <!-- Stacking Container (Changes from side-by-side columns to top-to-bottom layout) -->
+            <div style="display: flex; flex-direction: column; gap: 50px; width: 100%;">
                 
-                <!-- Left Column: Embedded Video Window -->
-                <div style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- TOP BLOCK: Video Endorsement (Takes up comfortable centered space) -->
+                <div style="display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 800px; margin: 0 auto;">
                     <h4 style="font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 5px;">Video Endorsement</h4>
                     
                     <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 20px;">
@@ -576,69 +576,69 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Categorized Evidence Slider Track -->
-                <div style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- BOTTOM BLOCK: Performance Evidence (Now full width with large, highly legible images) -->
+                <div style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
                     <h4 style="font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 5px;">Performance Evidence</h4>
                     
-                    <div class="gallery-slider-box" style="position: relative;">
+                    <div class="gallery-slider-box" style="position: relative; width: 100%;">
                         <!-- Horizontal Scroll Wrapper -->
-                        <div class="slider-scroll-track" id="galleryTrack" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 25px; scrollbar-width: none; -ms-overflow-style: none;">
+                        <div class="slider-scroll-track" id="galleryTrack" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 30px; scrollbar-width: none; -ms-overflow-style: none;">
                             
-                            <!-- CATEGORY 1: Client Commendations -->
-                            <div class="slider-node" style="flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 15px;">
-                                <div style="font-size: 0.9rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">1. Client Commendations</div>
-                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; background: #1c1d1f; padding: 18px; border-radius: 8px; max-height: 340px; overflow-y: auto;">
-                                    <img src="commendation1.jpg" style="width:100%; border-radius:4px; border:1px solid rgba(255,255,255,0.05);" alt="Commendation 1">
-                                    <img src="commendation2.jpg" style="width:100%; border-radius:4px; border:1px solid rgba(255,255,255,0.05);" alt="Commendation 2">
-                                    <img src="commendation3.jpg" style="width:100%; border-radius:4px; border:1px solid rgba(255,255,255,0.05);" alt="Commendation 3">
-                                    <img src="commendation4.jpg" style="width:100%; border-radius:4px; border:1px solid rgba(255,255,255,0.05);" alt="Commendation 4">
-                                    <img src="commendation5.jpg" style="width:100%; border-radius:4px; border:1px solid rgba(255,255,255,0.05); grid-column: span 2;" alt="Commendation 5">
+                            <!-- CATEGORY 1: Client Commendations (Large Layout) -->
+                            <div class="slider-node" style="flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 20px;">
+                                <div style="font-size: 1rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">1. Client Commendations</div>
+                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; background: #1c1d1f; padding: 25px; border-radius: 8px;">
+                                    <img src="commendation1.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 1">
+                                    <img src="commendation2.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 2">
+                                    <img src="commendation3.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 3">
+                                    <img src="commendation4.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 4">
+                                    <img src="commendation5.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); grid-column: span 2; box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 5">
                                 </div>
-                                <p style="font-size: 0.9rem; color: #a0a0a5; line-height: 1.5; margin: 0;">Direct operational logs and workspace team updates highlighting cross-functional leadership, problem-solving agility, and administrative praise.</p>
+                                <p style="font-size: 1rem; color: #a0a0a5; line-height: 1.6; margin: 0;">Direct operational logs and workspace team updates highlighting cross-functional leadership, problem-solving agility, and administrative praise.</p>
                             </div>
 
-                            <!-- CATEGORY 2: Customer Feedback Surveys -->
-                            <div class="slider-node" style="flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 15px;">
-                                <div style="font-size: 0.9rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">2. Customer Feedback Surveys</div>
-                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; background: #1c1d1f; padding: 18px; border-radius: 8px; max-height: 340px; overflow-y: auto;">
-                                    <img src="feedback1.jpg" style="width:100%; border-radius:4px;" alt="Feedback 1">
-                                    <img src="feedback2.jpg" style="width:100%; border-radius:4px;" alt="Feedback 2">
-                                    <img src="feedback3.jpg" style="width:100%; border-radius:4px;" alt="Feedback 3">
-                                    <img src="feedback4.jpg" style="width:100%; border-radius:4px;" alt="Feedback 4">
-                                    <img src="feedback5.jpg" style="width:100%; border-radius:4px;" alt="Feedback 5">
-                                    <img src="feedback6.jpg" style="width:100%; border-radius:4px;" alt="Feedback 6">
-                                    <img src="feedback7.jpg" style="width:100%; border-radius:4px;" alt="Feedback 7">
-                                    <img src="feedback8.jpg" style="width:100%; border-radius:4px;" alt="Feedback 8">
-                                    <img src="feedback9.jpg" style="width:100%; border-radius:4px;" alt="Feedback 9">
-                                    <img src="feedback10.jpg" style="width:100%; border-radius:4px;" alt="Feedback 10">
-                                    <img src="feedback11.jpg" style="width:100%; border-radius:4px;" alt="Feedback 11">
-                                    <img src="feedback12.jpg" style="width:100%; border-radius:4px;" alt="Feedback 12">
+                            <!-- CATEGORY 2: Customer Feedback Surveys (Large Grid Layout) -->
+                            <div class="slider-node" style="flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 20px;">
+                                <div style="font-size: 1rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">2. Customer Feedback Surveys</div>
+                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: #1c1d1f; padding: 25px; border-radius: 8px;">
+                                    <img src="feedback1.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 1">
+                                    <img src="feedback2.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 2">
+                                    <img src="feedback3.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 3">
+                                    <img src="feedback4.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 4">
+                                    <img src="feedback5.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 5">
+                                    <img src="feedback6.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 6">
+                                    <img src="feedback7.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 7">
+                                    <img src="feedback8.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 8">
+                                    <img src="feedback9.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 9">
+                                    <img src="feedback10.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 10">
+                                    <img src="feedback11.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 11">
+                                    <img src="feedback12.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 12">
                                 </div>
-                                <p style="font-size: 0.9rem; color: #a0a0a5; line-height: 1.5; margin: 0;">Verified external user surveys and individual feedback milestones documenting timeline management adherence and user case satisfaction logs.</p>
+                                <p style="font-size: 1rem; color: #a0a0a5; line-height: 1.6; margin: 0;">Verified external user surveys and individual feedback milestones documenting timeline management adherence and user case satisfaction logs.</p>
                             </div>
 
-                            <!-- CATEGORY 3: KPI Metrics Data -->
-                            <div class="slider-node" style="flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 15px;">
-                                <div style="font-size: 0.9rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">3. KPI Metrics Data</div>
-                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; background: #1c1d1f; padding: 18px; border-radius: 8px; max-height: 340px; overflow-y: auto;">
-                                    <img src="KPI 1.jpg" style="width:100%; border-radius:4px;" alt="KPI 1">
-                                    <img src="KPI 2.jpg" style="width:100%; border-radius:4px;" alt="KPI 2">
-                                    <img src="KPI 3.jpg" style="width:100%; border-radius:4px;" alt="KPI 3">
-                                    <img src="KPI 4.jpg" style="width:100%; border-radius:4px;" alt="KPI 4">
-                                    <img src="KPI 5.jpg" style="width:100%; border-radius:4px;" alt="KPI 5">
-                                    <img src="KPI 6.jpg" style="width:100%; border-radius:4px;" alt="KPI 6">
-                                    <img src="KPI 7.jpg" style="width:100%; grid-column: span 2; border-radius:4px;" alt="KPI 7">
-                                    <img src="KPI 8.jpg" style="width:100%; grid-column: span 2; border-radius:4px;" alt="KPI 8">
+                            <!-- CATEGORY 3: KPI Metrics Data (Large Clean Grid) -->
+                            <div class="slider-node" style="flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 20px;">
+                                <div style="font-size: 1rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">3. KPI Metrics Data</div>
+                                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; background: #1c1d1f; padding: 25px; border-radius: 8px;">
+                                    <img src="KPI 1.jpg" style="width:100%; grid-column: span 2; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 1">
+                                    <img src="KPI 2.jpg" style="width:100%; grid-column: span 2; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 2">
+                                    <img src="KPI 3.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 3">
+                                    <img src="KPI 4.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 4">
+                                    <img src="KPI 5.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 5">
+                                    <img src="KPI 6.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 6">
+                                    <img src="KPI 7.jpg" style="width:100%; grid-column: span 2; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 7">
+                                    <img src="KPI 8.jpg" style="width:100%; grid-column: span 2; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 8">
                                 </div>
-                                <p style="font-size: 0.9rem; color: #a0a0a5; line-height: 1.5; margin: 0;">Analytical dash performance logs, task accuracy scorecards, and system sync timeline validations demonstrating operational metrics tracking.</p>
+                                <p style="font-size: 1rem; color: #a0a0a5; line-height: 1.6; margin: 0;">Analytical dash performance logs, task accuracy scorecards, and system sync timeline validations demonstrating operational metrics tracking.</p>
                             </div>
 
                         </div>
 
                         <!-- Manual Navigation Buttons -->
-                        <div class="slider-controls" style="display: flex; gap: 10px; margin-top: 25px; justify-content: flex-end;">
-                            <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: -500, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid rgba(255,255,255,0.05); color: #fff; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s;">⟵</button>
-                            <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: 500, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid rgba(255,255,255,0.05); color: #fff; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s;">⟶</button>
+                        <div class="slider-controls" style="display: flex; gap: 15px; margin-top: 25px; justify-content: flex-end;">
+                            <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: -1000, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid rgba(255,255,255,0.05); color: #fff; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 1.1rem;">⟵</button>
+                            <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: 1000, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid rgba(255,255,255,0.05); color: #fff; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 1.1rem;">⟶</button>
                         </div>
                     </div>
                 </div>
