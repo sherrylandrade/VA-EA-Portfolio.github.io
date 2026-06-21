@@ -14,10 +14,10 @@
             min-height: 100vh;
             overflow-x: hidden;
             overflow-y: auto;
-            scroll-behavior: smooth; /* Smooth transitions */
+            scroll-behavior: smooth;
         }
 
-        /* Top Navigation Bar - Fixed so it stays with us */
+        /* Fixed Top Navigation Bar */
         .navbar {
             width: 100%;
             height: 80px;
@@ -55,20 +55,6 @@
 
         .nav-item:hover {
             color: #ffffff;
-        }
-
-        .burger-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .burger-line {
-            width: 28px;
-            height: 2px;
-            background-color: #ffffff;
         }
 
         /* PAGE 1: Landing Page Container */
@@ -162,84 +148,66 @@
 
         .btn-explore:hover { opacity: 0.9; }
 
-        /* Fullscreen Menu Overlay for your other 9 sections */
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(28, 29, 31, 0.98);
-            z-index: 200;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
-        }
-
-        .menu-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .close-menu {
-            position: absolute;
-            top: 40px;
-            right: 40px;
-            font-size: 2.5rem;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        .menu-links {
+        /* Stylized Portfolio Section Directory List */
+        .section-directory {
+            list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            text-align: center;
+            gap: 16px;
         }
 
-        .menu-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.5rem;
+        .directory-item {
+            font-size: 1.3rem;
             font-weight: 500;
-            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.4);
             text-transform: uppercase;
-            transition: color 0.2s;
+            letter-spacing: 1px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .menu-links a:hover { color: #2dd4bf; }
+        .directory-item:hover {
+            color: #2dd4bf;
+            padding-left: 10px;
+            border-bottom: 1px solid rgba(45, 212, 191, 0.3);
+        }
 
-        @media (max-width: 850px) {
+        .directory-item::after {
+            content: '→';
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .directory-item:hover::after {
+            opacity: 1;
+        }
+
+        @media (max-width: 950px) {
             .navbar { padding: 0 20px; }
-            .nav-links-right { display: none; }
             .page-one { flex-direction: column; height: auto; }
             .image-side { height: 40vh; width: 100vw; }
             .content-side { padding: 60px 20px; }
             .hero-title, .hero-subtitle { font-size: 3rem; }
             .line-accent { display: none; }
+            .page-two-grid { grid-template-columns: 1fr !important; gap: 50px !important; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navbar -->
+    <!-- Header Navbar (Swapped, renamed, and burger menu removed) -->
     <nav class="navbar">
         <div class="nav-logo">Sherryl Andrade</div>
         <div class="nav-links-right">
             <a href="#" class="nav-item">Home</a>
-            <a class="nav-item" onclick="toggleMenu()">Photo</a>
-            <!-- Directing to About Me via standard layout action anchor -->
             <a href="#about" class="nav-item">About Me</a>
-            <a class="nav-item" onclick="toggleMenu()">Contact</a>
-            <div class="burger-menu" onclick="toggleMenu()">
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-            </div>
+            <a href="#testimonials" class="nav-item">Testimonials</a>
+            <a href="#contact" class="nav-item">Contact</a>
         </div>
     </nav>
 
@@ -263,7 +231,6 @@
             </div>
 
             <div class="action-group">
-                <!-- Directing Explore Now button click directly to the About layout below -->
                 <button class="btn-explore" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Explore Now</button>
             </div>
 
@@ -271,10 +238,10 @@
         </div>
     </div>
 
-    <!-- PAGE 2: About Me Section (Exact Mirror of image_3547db.jpg Layout) -->
+    <!-- PAGE 2: About Me & Experience Sections Layout -->
     <div id="about" style="background-color: #1c1d1f; min-height: 100vh; width: 100vw; display: flex; align-items: center; padding: 120px 8% 80px 8%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03);">
         
-        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 8%; width: 100%; max-width: 1200px; margin: 0 auto;">
+        <div class="page-two-grid" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 8%; width: 100%; max-width: 1200px; margin: 0 auto;">
             
             <!-- Left Side Column: Text Narrative -->
             <div style="display: flex; flex-direction: column; justify-content: center;">
@@ -306,38 +273,25 @@
 
             </div>
 
-            <!-- Right Side Column: Editorial Image Box -->
-            <div style="width: 100%; height: 500px; background-color: #222; overflow: hidden;">
-                <img src="image.jpg" alt="Sherryl Andrade Portfolio Workspace" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%);">
+            <!-- Right Side Column: Directory List (Replaces Image) -->
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+                <h3 style="font-size: 0.85rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;">Portfolio Directory</h3>
+                <ul class="section-directory">
+                    <li class="directory-item" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Core Services</li>
+                    <li class="directory-item" onclick="document.getElementById('skills').scrollIntoView({behavior: 'smooth'})">Skills</li>
+                    <li class="directory-item" onclick="document.getElementById('tools').scrollIntoView({behavior: 'smooth'})">Tools & Platforms</li>
+                    <li class="directory-item" onclick="document.getElementById('experience').scrollIntoView({behavior: 'smooth'})">Work Experience</li>
+                    <li class="directory-item" id="testimonials-target" onclick="document.getElementById('testimonials').scrollIntoView({behavior: 'smooth'})">Client Testimonials</li>
+                    <li class="directory-item" onclick="document.getElementById('feedback').scrollIntoView({behavior: 'smooth'})">Customer Feedback</li>
+                    <li class="directory-item" onclick="document.getElementById('certificates').scrollIntoView({behavior: 'smooth'})">Certificates</li>
+                    <li class="directory-item" onclick="document.getElementById('infrastructure').scrollIntoView({behavior: 'smooth'})">Technical Infrastructure</li>
+                </ul>
             </div>
 
         </div>
 
         <div style="position: absolute; bottom: 40px; right: 40px; font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); letter-spacing: 1px;">Page | 02</div>
     </div>
-
-    <!-- Hidden Secondary Overlay Links -->
-    <div class="menu-overlay" id="customMenu">
-        <button class="close-menu" onclick="toggleMenu()">×</button>
-        <div class="menu-links">
-            <a href="#about" onclick="toggleMenu()">About Me</a>
-            <a href="#services" onclick="toggleMenu()">Core Services</a>
-            <a href="#skills" onclick="toggleMenu()">Skills</a>
-            <a href="#tools" onclick="toggleMenu()">Tools & Platforms</a>
-            <a href="#experience" onclick="toggleMenu()">Work Experience</a>
-            <a href="#testimonials" onclick="toggleMenu()">Client Testimonials</a>
-            <a href="#feedback" onclick="toggleMenu()">Customer Feedback</a>
-            <a href="#certificates" onclick="toggleMenu()">Certificates</a>
-            <a href="#infrastructure" onclick="toggleMenu()">Technical Infrastructure & Redundancy</a>
-        </div>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('customMenu');
-            menu.classList.toggle('active');
-        }
-    </script>
 
 </body>
 </html>
