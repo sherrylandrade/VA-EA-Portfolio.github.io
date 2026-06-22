@@ -406,7 +406,8 @@
                         <li class="directory-item" onclick="document.getElementById('testimonials').scrollIntoView({behavior: 'smooth'})">Client Testimonials</li>
                         <li class="directory-item" onclick="document.getElementById('testimonials').scrollIntoView({behavior: 'smooth'})">Customer Feedback</li>
                         <li class="directory-item" onclick="event.preventDefault(); event.stopPropagation(); var target = document.getElementById('certificates'); if(target) { var parent = target.parentElement; while(parent && parent !== document.body) { if(parent.scrollWidth > parent.clientWidth) { parent.style.scrollSnapType = 'none'; parent.scrollTo({ left: target.offsetLeft, behavior: 'smooth' }); setTimeout(function() { parent.style.scrollSnapType = ''; }, 600); break; } parent = parent.parentElement; } target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }); }">Certificates</li>
-                        <li class="directory-item" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Technical Infrastructure</li>
+                        <li class="directory-item" onclick="event.preventDefault(); event.stopPropagation(); var target = document.getElementById('infrastructure'); if(target) { var parent = target.parentElement; while(parent && parent !== document.body) { if(parent.scrollWidth > parent.clientWidth) { parent.style.scrollSnapType = 'none'; parent.scrollTo({ left: target.offsetLeft, behavior: 'smooth' }); setTimeout(function() { parent.style.scrollSnapType = ''; }, 600); break; } parent = parent.parentElement; } target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }); }">Technical Infrastructure</li>
+                        <li class="directory-item" onclick="event.preventDefault(); event.stopPropagation(); var target = document.getElementById('cta-section'); if(target) { var parent = target.parentElement; while(parent && parent !== document.body) { if(parent.scrollWidth > parent.clientWidth) { parent.style.scrollSnapType = 'none'; parent.scrollTo({ left: target.offsetLeft, behavior: 'smooth' }); setTimeout(function() { parent.style.scrollSnapType = ''; }, 600); break; } parent = parent.parentElement; } target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }); }">Call To Action</li>
                     </ul>
                 </div>
             </div>
@@ -825,6 +826,91 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-</script>                        
+</script>    
+                        
+<!-- PAGE 7: Technical Infrastructure Landing Page -->
+<div id="infrastructure" class="slider-node" style="flex: 0 0 100%; width: 100vw; min-height: 100vh; background-color: #121314; display: flex; align-items: center; padding: 60px 5%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; box-sizing: border-box; scroll-snap-align: start;">
+    <div style="width: 100%; max-width: 1150px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; box-sizing: border-box;">
+        
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; width: 100%; box-sizing: border-box;">
+            <div>
+                <h3 style="font-size: 0.85rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 10px 0;">Workstation Setup</h3>
+                <h2 style="font-size: 3.5rem; font-weight: 700; letter-spacing: -2px; line-height: 1.1; margin: 0; color: #ffffff;">Technical Infrastructure</h2>
+                <div style="width: 80px; height: 2px; background-color: rgba(45, 212, 191, 0.4); margin-top: 15px;"></div>
+            </div>
+            <p style="font-size: 0.95rem; color: #a0a0a5; max-width: 380px; line-height: 1.6; margin: 0;">
+                High-availability production environment configured for uninterrupted uptime, low-latency communication networks, and reliable workflow execution data.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 30px; width: 100%; box-sizing: border-box; align-items: stretch;">
+            
+            <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 15px; box-sizing: border-box; justify-content: center;">
+                <div style="width: 100%; aspect-ratio: 16/10; background: #151617; border-radius: 8px; border: 1px dashed rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); text-align: center; padding: 20px; box-sizing: border-box;">
+                    <span style="font-size: 2rem; margin-bottom: 10px;">🖥️</span>
+                    <span style="font-size: 0.9rem; font-weight: 600; color: #ffffff; margin-bottom: 4px;">Workstation Screenshot</span>
+                    <span style="font-size: 0.75rem; color: #a0a0a5;">[Replace with your setup image URL]</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #a0a0a5; line-height: 1.5; text-align: center;">
+                    Monitored workstation architecture running active desktop process isolation matrix and high fidelity voice parameters.
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; box-sizing: border-box; width: 100%;">
+                
+                <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+                    <div>
+                        <div style="font-size: 1.2rem; margin-bottom: 10px;">⚙️</div>
+                        <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 8px 0;">System Specifications</h5>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #a0a0a5; line-height: 1.6;">
+                            <li>• OS: <strong style="color:#ffffff;">Windows 11 System</strong></li>
+                            <li>• CPU: <strong style="color:#ffffff;">Intel Core i5-9300H (2.40 GHz)</strong></li>
+                            <li>• RAM: <strong style="color:#ffffff;">12GB Capacity Configuration</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+                    <div>
+                        <div style="font-size: 1.2rem; margin-bottom: 10px;">📡</div>
+                        <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 8px 0;">Primary Network Link</h5>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #a0a0a5; line-height: 1.6;">
+                            <li>• Provider: <strong style="color:#ffffff;">Starlink Satellite Internet</strong></li>
+                            <li>• Bandwidth: <strong style="color:#ffffff;">100+ Mbps Down / 25+ Mbps Up</strong></li>
+                            <li>• Delivery: <strong style="color:#ffffff;">Wired Ethernet Connection</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+                    <div>
+                        <div style="font-size: 1.2rem; margin-bottom: 10px;">🎧</div>
+                        <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 8px 0;">Audio Peripherals</h5>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #a0a0a5; line-height: 1.6;">
+                            <li>• Device: <strong style="color:#ffffff;">Onikuma X13 Headset</strong></li>
+                            <li>• Hardware: <strong style="color:#ffffff;">High-Definition Output Node</strong></li>
+                            <li>• Isolation: <strong style="color:#ffffff;">Noise Reduction Microphone</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+                    <div>
+                        <div style="font-size: 1.2rem; margin-bottom: 10px;">🔋</div>
+                        <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 8px 0;">Failover Redundancies</h5>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #a0a0a5; line-height: 1.6;">
+                            <li>• Power Failover: <strong style="color:#ffffff;">Bluetti Power Backup Battery</strong></li>
+                            <li>• Network Failover: <strong style="color:#ffffff;">Mobile Hotspot Hot Standby</strong></li>
+                            <li>• Availability: <strong style="color:#ffffff;">99.9% Operations Continuity</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div style="position: absolute; bottom: 30px; right: 5%; font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px;">Page | 07</div>
+</div>                        
+                        
 </body>
 </html>
