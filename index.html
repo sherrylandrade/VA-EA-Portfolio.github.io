@@ -668,7 +668,7 @@
 </div>
                         
 <!-- PAGE 6: Certificates & Professional Credentials Landing Page -->
-<div id="certificates" style="background-color: #121314; min-height: 100vh; width: 100%; display: flex; align-items: center; padding: 60px 5%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; box-sizing: border-box; overflow: hidden;">
+<div id="certificates" class="slider-node" style="flex: 0 0 100%; width: 100vw; min-height: 100vh; background-color: #121314; display: flex; align-items: center; padding: 60px 5%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; box-sizing: border-box; scroll-snap-align: start;">
     <div style="width: 100%; max-width: 1150px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; box-sizing: border-box;">
         
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; width: 100%; box-sizing: border-box;">
@@ -700,7 +700,6 @@
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; box-sizing: border-box; width: 100%;">
-                
                 <div class="cert-card" style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px; box-sizing: border-box;">
                     <div>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
@@ -760,73 +759,15 @@
                         <span style="color: #2dd4bf; font-weight: 500;">Verified</span>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
-    
     <style>
-        .cert-card:hover {
-            border-color: rgba(45, 212, 191, 0.3) !important;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
-        }
+        .cert-card { transition: all 0.2s ease; }
+        .cert-card:hover { border-color: rgba(45, 212, 191, 0.3) !important; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important; }
     </style>
-    
     <div style="position: absolute; bottom: 30px; right: 5%; font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px;">Page | 06</div>
-</div>                        
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    // 1. Find every portfolio directory list on every page slide
-    var directories = document.querySelectorAll(".portfolio-directory-container ul");
-    
-    directories.forEach(function(ul) {
-        // Check if Certificates link already exists in this specific menu to avoid duplicates
-        if (!ul.innerHTML.includes('href="#certificates"')) {
-            
-            // 2. Create the new list item
-            var li = document.createElement("li");
-            li.style.marginBottom = "15px";
-            li.style.listStyle = "none";
-            
-            // 3. Build the link with the force-scroll layout override
-            var a = document.createElement("a");
-            a.href = "#certificates";
-            a.textContent = "Certificates";
-            a.style.cssText = "color: #a0a0a5; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px; display: inline-block; cursor: pointer; transition: color 0.2s ease;";
-            
-            // Hover effects
-            a.onmouseover = function() { this.style.color = '#2dd4bf'; };
-            a.onmouseout = function() { this.style.color = '#a0a0a5'; };
-            
-            // Smooth horizontal slider click engine
-            a.onclick = function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                var target = document.getElementById('certificates');
-                if (target) {
-                    var parent = target.parentElement;
-                    while (parent && parent !== document.body) {
-                        if (parent.scrollWidth > parent.clientWidth) {
-                            parent.style.scrollSnapType = 'none';
-                            parent.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
-                            setTimeout(function() { parent.style.scrollSnapType = ''; }, 600);
-                            break;
-                        }
-                        parent = parent.parentElement;
-                    }
-                    target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
-                }
-            };
-            
-            // 4. Inject it cleanly at the bottom of the current list
-            li.appendChild(a);
-            ul.appendChild(li);
-        }
-    });
-});
-</script>    
+</div>    
                         
 <!-- PAGE 7: Technical Infrastructure Landing Page -->
 <div id="infrastructure" class="slider-node" style="flex: 0 0 100%; width: 100vw; min-height: 100vh; background-color: #121314; display: flex; align-items: center; padding: 60px 5%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; box-sizing: border-box; scroll-snap-align: start;">
@@ -843,67 +784,68 @@ document.addEventListener("DOMContentLoaded", function() {
             </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 30px; width: 100%; box-sizing: border-box; align-items: stretch;">
+        <div style="display: grid; grid-template-columns: 1.3fr 2fr; gap: 30px; width: 100%; box-sizing: border-box; align-items: center;">
             
-            <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 15px; box-sizing: border-box; justify-content: center;">
-                <div style="width: 100%; aspect-ratio: 16/10; background: #151617; border-radius: 8px; border: 1px dashed rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); text-align: center; padding: 20px; box-sizing: border-box;">
-                    <span style="font-size: 2rem; margin-bottom: 10px;">🖥️</span>
-                    <span style="font-size: 0.9rem; font-weight: 600; color: #ffffff; margin-bottom: 4px;">Workstation Screenshot</span>
-                    <span style="font-size: 0.75rem; color: #a0a0a5;">[Replace with your setup image URL]</span>
+            <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 15px; display: flex; flex-direction: column; gap: 15px; box-sizing: border-box;">
+                <div style="position: relative; width: 100%; aspect-ratio: 4/3; background: #151617; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                    
+                    <img id="infra-slide-1" src="image_227f63.png" style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 6px;">
+                    <img id="infra-slide-2" src="image_544f01.png" style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: none; border-radius: 6px;">
+                    <img id="infra-slide-3" src="image_5452de.png" style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: none; border-radius: 6px;">
+                    
+                    <button onclick="changeInfraSlide(-1)" style="position: absolute; left: 10px; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; font-weight: bold; z-index: 10;">‹</button>
+                    <button onclick="changeInfraSlide(1)" style="position: absolute; right: 10px; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; font-weight: bold; z-index: 10;">›</button>
+                </div>
+                <div style="display: flex; justify-content: center; gap: 8px;" id="infra-dots-container">
+                    <div class="infra-dot" style="width: 8px; height: 8px; background: #2dd4bf; border-radius: 50%;"></div>
+                    <div class="infra-dot" style="width: 8px; height: 8px; background: rgba(255,255,255,0.2); border-radius: 50%;"></div>
+                    <div class="infra-dot" style="width: 8px; height: 8px; background: rgba(255,255,255,0.2); border-radius: 50%;"></div>
                 </div>
                 <div style="font-size: 0.8rem; color: #a0a0a5; line-height: 1.5; text-align: center;">
-                    Monitored workstation architecture running active desktop process isolation matrix and high fidelity voice parameters.
+                    Monitored workstation hardware environment showcasing multi-monitor arrays, data terminal flows, and auxiliary backup channels.
                 </div>
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; box-sizing: border-box; width: 100%;">
                 
-                <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
-                    <div>
-                        <div style="font-size: 1.2rem; margin-bottom: 10px;">⚙️</div>
-                        <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 8px 0;">System Specifications</h5>
-                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #a0a0a5; line-height: 1.6;">
-                            <li>• OS: <strong style="color:#ffffff;">Windows 11 System</strong></li>
-                            <li>• CPU: <strong style="color:#ffffff;">Intel Core i5-9300H (2.40 GHz)</strong></li>
-                            <li>• RAM: <strong style="color:#ffffff;">12GB Capacity Configuration</strong></li>
-                        </ul>
-                    </div>
+                <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; box-sizing: border-box;">
+                    <div style="font-size: 1.2rem; margin-bottom: 10px;">⚙️</div>
+                    <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 8px 0;">System Specifications</h5>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #a0a0a5; line-height: 1.6;">
+                        <li>• OS: <strong style="color:#ffffff;">Windows 11 System</strong></li>
+                        <li>• CPU: <strong style="color:#ffffff;">Intel Core i5-9300H (2.40 GHz)</strong></li>
+                        <li>• RAM: <strong style="color:#ffffff;">12GB Architecture</strong></li>
+                    </ul>
                 </div>
 
-                <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
-                    <div>
-                        <div style="font-size: 1.2rem; margin-bottom: 10px;">📡</div>
-                        <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 8px 0;">Primary Network Link</h5>
-                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #a0a0a5; line-height: 1.6;">
-                            <li>• Provider: <strong style="color:#ffffff;">Starlink Satellite Internet</strong></li>
-                            <li>• Bandwidth: <strong style="color:#ffffff;">100+ Mbps Down / 25+ Mbps Up</strong></li>
-                            <li>• Delivery: <strong style="color:#ffffff;">Wired Ethernet Connection</strong></li>
-                        </ul>
-                    </div>
+                <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; box-sizing: border-box;">
+                    <div style="font-size: 1.2rem; margin-bottom: 10px;">📡</div>
+                    <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 8px 0;">Primary Network Link</h5>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #a0a0a5; line-height: 1.6;">
+                        <li>• Provider: <strong style="color:#ffffff;">Starlink High-Speed Satellite</strong></li>
+                        <li>• Bandwidth: <strong style="color:#ffffff;">100+ Mbps Down / 25+ Mbps Up</strong></li>
+                        <li>• Interface: <strong style="color:#ffffff;">Wired Ethernet Connection</strong></li>
+                    </ul>
                 </div>
 
-                <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
-                    <div>
-                        <div style="font-size: 1.2rem; margin-bottom: 10px;">🎧</div>
-                        <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 8px 0;">Audio Peripherals</h5>
-                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #a0a0a5; line-height: 1.6;">
-                            <li>• Device: <strong style="color:#ffffff;">Onikuma X13 Headset</strong></li>
-                            <li>• Hardware: <strong style="color:#ffffff;">High-Definition Output Node</strong></li>
-                            <li>• Isolation: <strong style="color:#ffffff;">Noise Reduction Microphone</strong></li>
-                        </ul>
-                    </div>
+                <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; box-sizing: border-box;">
+                    <div style="font-size: 1.2rem; margin-bottom: 10px;">🎧</div>
+                    <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 8px 0;">Audio Peripherals</h5>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #a0a0a5; line-height: 1.6;">
+                        <li>• Device: <strong style="color:#ffffff;">Onikuma X13 Headset</strong></li>
+                        <li>• Feature: <strong style="color:#ffffff;">High-Definition Audio Drivers</strong></li>
+                        <li>• Isolation: <strong style="color:#ffffff;">HD Noise Reduction Mic</strong></li>
+                    </ul>
                 </div>
 
-                <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
-                    <div>
-                        <div style="font-size: 1.2rem; margin-bottom: 10px;">🔋</div>
-                        <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 8px 0;">Failover Redundancies</h5>
-                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #a0a0a5; line-height: 1.6;">
-                            <li>• Power Failover: <strong style="color:#ffffff;">Bluetti Power Backup Battery</strong></li>
-                            <li>• Network Failover: <strong style="color:#ffffff;">Mobile Hotspot Hot Standby</strong></li>
-                            <li>• Availability: <strong style="color:#ffffff;">99.9% Operations Continuity</strong></li>
-                        </ul>
-                    </div>
+                <div style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; box-sizing: border-box;">
+                    <div style="font-size: 1.2rem; margin-bottom: 10px;">🔋</div>
+                    <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 8px 0;">Failover Redundancies</h5>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #a0a0a5; line-height: 1.6;">
+                        <li>• Main Power: <strong style="color:#ffffff;">Bluetti Power Backup Battery</strong></li>
+                        <li>• Alternate Net: <strong style="color:#ffffff;">Mobile Hotspot Hot-Standby</strong></li>
+                        <li>• Target Uptime: <strong style="color:#ffffff;">99.9% Uptime Redundancy</strong></li>
+                    </ul>
                 </div>
 
             </div>
