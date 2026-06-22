@@ -405,14 +405,8 @@
                         <li class="directory-item" onclick="document.getElementById('experience').scrollIntoView({behavior: 'smooth'})">Work Experience</li>
                         <li class="directory-item" onclick="document.getElementById('testimonials').scrollIntoView({behavior: 'smooth'})">Client Testimonials</li>
                         <li class="directory-item" onclick="document.getElementById('testimonials').scrollIntoView({behavior: 'smooth'})">Customer Feedback</li>
-                        <li class="directory-item" onclick="document.getElementById('about<').scrollIntoView({behavior: 'smooth'})">Certificates</li>
+                        <li class="directory-item" onclick="event.preventDefault(); event.stopPropagation(); var target = document.getElementById('certificates'); if(target) { var parent = target.parentElement; while(parent && parent !== document.body) { if(parent.scrollWidth > parent.clientWidth) { parent.style.scrollSnapType = 'none'; parent.scrollTo({ left: target.offsetLeft, behavior: 'smooth' }); setTimeout(function() { parent.style.scrollSnapType = ''; }, 600); break; } parent = parent.parentElement; } target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }); }">Certificates</li>
                         <li class="directory-item" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Technical Infrastructure</li>
-            <li style="margin-bottom: 15px; list-style: none;">
-            <a href="#certificates" onclick="event.preventDefault(); var target = document.getElementById('certificates'); if(target) { target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }); }" style="color: #a0a0a5; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px; display: inline-block; cursor: pointer; transition: color 0.2s ease;" onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='#a0a0a5'">Certificates</a>
-        </li>
-            <li style="margin-bottom: 15px; list-style: none;">
-    <a href="#certificates" onclick="event.preventDefault(); event.stopPropagation(); var target = document.getElementById('certificates'); if(target) { var parent = target.parentElement; while(parent && parent !== document.body) { if(parent.scrollWidth > parent.clientWidth) { parent.style.scrollSnapType = 'none'; parent.scrollTo({ left: target.offsetLeft, behavior: 'smooth' }); setTimeout(function() { parent.style.scrollSnapType = ''; }, 600); break; } parent = parent.parentElement; } target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }); }" style="color: #a0a0a5; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px; display: inline-block; cursor: pointer; transition: color 0.2s ease;" onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='#a0a0a5'">Certificates</a>
-</li>
                     </ul>
                 </div>
             </div>
