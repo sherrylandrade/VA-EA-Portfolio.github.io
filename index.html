@@ -410,6 +410,9 @@
             <li style="margin-bottom: 15px; list-style: none;">
             <a href="#certificates" onclick="event.preventDefault(); var target = document.getElementById('certificates'); if(target) { target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }); }" style="color: #a0a0a5; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px; display: inline-block; cursor: pointer; transition: color 0.2s ease;" onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='#a0a0a5'">Certificates</a>
         </li>
+            <li style="margin-bottom: 15px; list-style: none;">
+    <a href="#certificates" onclick="event.preventDefault(); event.stopPropagation(); var target = document.getElementById('certificates'); if(target) { var parent = target.parentElement; while(parent && parent !== document.body) { if(parent.scrollWidth > parent.clientWidth) { parent.style.scrollSnapType = 'none'; parent.scrollTo({ left: target.offsetLeft, behavior: 'smooth' }); setTimeout(function() { parent.style.scrollSnapType = ''; }, 600); break; } parent = parent.parentElement; } target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }); }" style="color: #a0a0a5; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px; display: inline-block; cursor: pointer; transition: color 0.2s ease;" onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='#a0a0a5'">Certificates</a>
+</li>
                     </ul>
                 </div>
             </div>
@@ -778,6 +781,56 @@
     
     <div style="position: absolute; bottom: 30px; right: 5%; font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px;">Page | 06</div>
 </div>                        
-                        
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Find every portfolio directory list on every page slide
+    var directories = document.querySelectorAll(".portfolio-directory-container ul");
+    
+    directories.forEach(function(ul) {
+        // Check if Certificates link already exists in this specific menu to avoid duplicates
+        if (!ul.innerHTML.includes('href="#certificates"')) {
+            
+            // 2. Create the new list item
+            var li = document.createElement("li");
+            li.style.marginBottom = "15px";
+            li.style.listStyle = "none";
+            
+            // 3. Build the link with the force-scroll layout override
+            var a = document.createElement("a");
+            a.href = "#certificates";
+            a.textContent = "Certificates";
+            a.style.cssText = "color: #a0a0a5; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px; display: inline-block; cursor: pointer; transition: color 0.2s ease;";
+            
+            // Hover effects
+            a.onmouseover = function() { this.style.color = '#2dd4bf'; };
+            a.onmouseout = function() { this.style.color = '#a0a0a5'; };
+            
+            // Smooth horizontal slider click engine
+            a.onclick = function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                var target = document.getElementById('certificates');
+                if (target) {
+                    var parent = target.parentElement;
+                    while (parent && parent !== document.body) {
+                        if (parent.scrollWidth > parent.clientWidth) {
+                            parent.style.scrollSnapType = 'none';
+                            parent.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+                            setTimeout(function() { parent.style.scrollSnapType = ''; }, 600);
+                            break;
+                        }
+                        parent = parent.parentElement;
+                    }
+                    target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+                }
+            };
+            
+            // 4. Inject it cleanly at the bottom of the current list
+            li.appendChild(a);
+            ul.appendChild(li);
+        }
+    });
+});
+</script>                        
 </body>
 </html>
