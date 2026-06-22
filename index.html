@@ -774,34 +774,92 @@
                         
 <!-- PAGE 7: Technical Infrastructure Landing Page -->
 
-<!-- PAGE 7: Technical Infrastructure Section -->
 <div id="infrastructure" style="background-color: #121314; min-height: auto; width: 100vw; display: flex; align-items: flex-start; padding: 60px 8% 80px 8%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03);">
     <div style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px;">
         
-        <div style="margin-bottom: 10px;">
-            <h3 style="font-size: 0.85rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Environment</h3>
-            <h2 style="font-size: 4rem; font-weight: 700; letter-spacing: -2px; line-height: 1.1; color: #ffffff; margin: 0;">Technical Infrastructure</h2>
-            <div style="width: 80px; height: 2px; background-color: rgba(255, 255, 255, 0.2); margin-top: 15px;"></div>
+        <!-- Header with split layout like image_57f4ff.png -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; width: 100%;">
+            <div style="flex: 1;">
+                <h3 style="font-size: 0.85rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Workstation Setup</h3>
+                <h2 style="font-size: 4rem; font-weight: 700; letter-spacing: -2px; line-height: 1.1; color: #ffffff; margin: 0;">Technical Infrastructure</h2>
+                <div style="width: 80px; height: 2px; background-color: rgba(255, 255, 255, 0.2); margin-top: 15px;"></div>
+            </div>
+            <div style="flex: 1; max-width: 500px; padding-top: 25px;">
+                <p style="font-size: 0.95rem; color: #a0a0a5; line-height: 1.6; margin: 0; text-align: right;">
+                    High-availability production environment configured for uninterrupted uptime, low-latency communication networks, and reliable workflow execution data.
+                </p>
+            </div>
         </div>
 
-        <!-- Infrastructure Metrics Cards -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; width: 100%; margin-top: 10px;">
+        <!-- Main Content Area Grid -->
+        <div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 30px; width: 100%; margin-top: 10px;">
             
-            <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 30px; text-align: center; display: flex; flex-direction: column; gap: 10px;">
-                <div style="font-size: 3rem; font-weight: 700; color: #2dd4bf; line-height: 1;">150+</div>
-                <div style="font-size: 0.9rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Mbps Download</div>
+            <!-- Left Column: Workstation Slider Card -->
+            <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+                <div style="position: relative; width: 100%; aspect-ratio: 4/3; background: #121314; border-radius: 6px; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+                    <!-- Slider Placeholder/Image Control Structure -->
+                    <button style="position: absolute; left: 10px; background: rgba(0,0,0,0.5); color: #fff; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">‹</button>
+                    <img src="workstation_placeholder.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Workstation Setup">
+                    <button style="position: absolute; right: 10px; background: rgba(0,0,0,0.5); color: #fff; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">›</button>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="display: flex; justify-content: center; gap: 6px; margin-bottom: 15px;">
+                        <span style="width: 6px; height: 6px; background-color: #2dd4bf; border-radius: 50%;"></span>
+                        <span style="width: 6px; height: 6px; background-color: rgba(255,255,255,0.2); border-radius: 50%;"></span>
+                    </div>
+                    <p style="font-size: 0.85rem; color: #a0a0a5; line-height: 1.5; margin: 0;">
+                        Monitored workstation architecture running active desktop process isolation matrix and high-fidelity voice parameters.
+                    </p>
+                </div>
             </div>
 
-            <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 30px; text-align: center; display: flex; flex-direction: column; gap: 10px;">
-                <div style="font-size: 3rem; font-weight: 700; color: #2dd4bf; line-height: 1;">120+</div>
-                <div style="font-size: 0.9rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Mbps Upload</div>
-            </div>
+            <!-- Right Column: Specs 2x2 Sub-grid -->
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                
+                <!-- Card 1: System Specifications -->
+                <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
+                    <div style="color: #2dd4bf; font-size: 1.2rem;">⚙️</div>
+                    <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 0;">System Specifications</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: #a0a0a5;">
+                        <li>• <strong style="color: #ffffff;">OS:</strong> Windows 11 System</li>
+                        <li>• <strong style="color: #ffffff;">CPU:</strong> Intel i5-9300H (2.40 GHz)</li>
+                        <li>• <strong style="color: #ffffff;">RAM:</strong> 12GB Capacity</li>
+                    </ul>
+                </div>
 
-            <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 30px; text-align: center; display: flex; flex-direction: column; gap: 10px;">
-                <div style="font-size: 3rem; font-weight: 700; color: #2dd4bf; line-height: 1;">24/7</div>
-                <div style="font-size: 0.9rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Power Backup</div>
-            </div>
+                <!-- Card 2: Primary Network Link -->
+                <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
+                    <div style="color: #2dd4bf; font-size: 1.2rem;">📡</div>
+                    <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 0;">Primary Network Link</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: #a0a0a5;">
+                        <li>• <strong style="color: #ffffff;">Link:</strong> Starlink Satellite</li>
+                        <li>• <strong style="color: #ffffff;">Speed:</strong> 100+ Mbps Dn / 25+ Up</li>
+                        <li>• <strong style="color: #ffffff;">Core:</strong> Wired Ethernet Connection</li>
+                    </ul>
+                </div>
 
+                <!-- Card 3: Audio Peripherals -->
+                <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
+                    <div style="color: #2dd4bf; font-size: 1.2rem;">🎧</div>
+                    <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 0;">Audio Peripherals</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: #a0a0a5;">
+                        <li>• <strong style="color: #ffffff;">Hardware:</strong> Onikuma X15 Headset</li>
+                        <li>• <strong style="color: #ffffff;">Mic:</strong> HD Noise Reduction Microphone</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Failover Redundancies -->
+                <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
+                    <div style="color: #2dd4bf; font-size: 1.2rem;">🔋</div>
+                    <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 0;">Failover Redundancies</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: #a0a0a5;">
+                        <li>• <strong style="color: #ffffff;">Battery:</strong> Blueetti Power Backup Battery</li>
+                        <li>• <strong style="color: #ffffff;">Backup Net:</strong> Mobile Hotspot Standby</li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
 
     </div>
