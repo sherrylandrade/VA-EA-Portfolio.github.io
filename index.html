@@ -407,6 +407,9 @@
                         <li class="directory-item" onclick="document.getElementById('testimonials').scrollIntoView({behavior: 'smooth'})">Customer Feedback</li>
                         <li class="directory-item" onclick="document.getElementById('about<').scrollIntoView({behavior: 'smooth'})">Certificates</li>
                         <li class="directory-item" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Technical Infrastructure</li>
+            <li style="margin-bottom: 15px; list-style: none;">
+            <a href="#certificates" onclick="event.preventDefault(); var target = document.getElementById('certificates'); if(target) { target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }); }" style="color: #a0a0a5; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px; display: inline-block; cursor: pointer; transition: color 0.2s ease;" onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='#a0a0a5'">Certificates</a>
+        </li>
                     </ul>
                 </div>
             </div>
@@ -667,7 +670,114 @@
 </div>
                         
 <!-- PAGE 6: Certificates & Professional Credentials Landing Page -->
-                        
+<div id="certificates" style="background-color: #121314; min-height: 100vh; width: 100%; display: flex; align-items: center; padding: 60px 5%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; box-sizing: border-box; overflow: hidden;">
+    <div style="width: 100%; max-width: 1150px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; box-sizing: border-box;">
+        
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; width: 100%; box-sizing: border-box;">
+            <div>
+                <h3 style="font-size: 0.85rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 10px 0;">Verifications</h3>
+                <h2 style="font-size: 3.5rem; font-weight: 700; letter-spacing: -2px; line-height: 1.1; margin: 0; color: #ffffff;">Certificates</h2>
+                <div style="width: 80px; height: 2px; background-color: rgba(45, 212, 191, 0.4); margin-top: 15px;"></div>
+            </div>
+            <p style="font-size: 0.95rem; color: #a0a0a5; max-width: 380px; line-height: 1.6; margin: 0;">
+                Validated professional milestones, technical expertise credentials, and specialized industry platform governance standardizations.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: minmax(280px, 1fr) 3fr; gap: 25px; width: 100%; box-sizing: border-box; align-items: stretch;">
+            
+            <div style="background: linear-gradient(135deg, #1c1d1f 0%, #151617 100%); border: 1px solid rgba(45, 212, 191, 0.2); border-radius: 12px; padding: 30px; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+                <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: rgba(45, 212, 191, 0.05); filter: blur(50px); border-radius: 50%;"></div>
+                <div>
+                    <div style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: rgba(45, 212, 191, 0.1); border-radius: 8px; margin-bottom: 25px;">
+                        <span style="font-size: 1.3rem; color: #2dd4bf;">🏆</span>
+                    </div>
+                    <h4 style="font-size: 1.35rem; font-weight: 700; color: #ffffff; margin: 0 0 10px 0; line-height: 1.3;">Core Expertise Verification Stack</h4>
+                    <p style="font-size: 0.9rem; color: #a0a0a5; line-height: 1.5; margin: 0;">Continuing professional development program focusing on technical infrastructure compliance, standard operational frameworks, and user metrics validation.</p>
+                </div>
+                <div style="margin-top: 35px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px;">
+                    <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.4); margin-bottom: 5px;">Latest Issuance</div>
+                    <div style="font-size: 1rem; font-weight: 600; color: #2dd4bf;">Operational Quality Excellence</div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; box-sizing: border-box; width: 100%;">
+                
+                <div class="cert-card" style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px; box-sizing: border-box;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="font-size: 0.75rem; background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6); padding: 3px 8px; border-radius: 4px;">ID: CERT-01</span>
+                            <span style="font-size: 1.1rem;">📜</span>
+                        </div>
+                        <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 6px 0;">Zendesk Advanced Support Platform Governance</h5>
+                        <p style="font-size: 0.85rem; color: #a0a0a5; margin: 0; line-height: 1.4;">Operational ticket structural management, performance flow routing, and system data validations analytics.</p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 10px;">
+                        <span style="color: rgba(255,255,255,0.4);">Issuer: <strong>Internal Ops Academy</strong></span>
+                        <span style="color: #2dd4bf; font-weight: 500;">Verified</span>
+                    </div>
+                </div>
+
+                <div class="cert-card" style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px; box-sizing: border-box;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="font-size: 0.75rem; background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6); padding: 3px 8px; border-radius: 4px;">ID: CERT-02</span>
+                            <span style="font-size: 1.1rem;">📊</span>
+                        </div>
+                        <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 6px 0;">Analytical Metrics Performance Tracking</h5>
+                        <p style="font-size: 0.85rem; color: #a0a0a5; margin: 0; line-height: 1.4;">KPI metrics scorecards logic, pipeline trend evaluations, and strategic cross-functional operational leadership reporting.</p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 10px;">
+                        <span style="color: rgba(255,255,255,0.4);">Issuer: <strong>Metrics Standard Org</strong></span>
+                        <span style="color: #2dd4bf; font-weight: 500;">Verified</span>
+                    </div>
+                </div>
+
+                <div class="cert-card" style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px; box-sizing: border-box;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="font-size: 0.75rem; background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6); padding: 3px 8px; border-radius: 4px;">ID: CERT-03</span>
+                            <span style="font-size: 1.1rem;">🛠️</span>
+                        </div>
+                        <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 6px 0;">Workspace & Infrastructure Specialization</h5>
+                        <p style="font-size: 0.85rem; color: #a0a0a5; margin: 0; line-height: 1.4;">Platform configuration controls, workspace macro optimization setups, and system sync validation procedures.</p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 10px;">
+                        <span style="color: rgba(255,255,255,0.4);">Issuer: <strong>Tech System Corp</strong></span>
+                        <span style="color: #2dd4bf; font-weight: 500;">Verified</span>
+                    </div>
+                </div>
+
+                <div class="cert-card" style="background: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px; box-sizing: border-box;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span style="font-size: 0.75rem; background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6); padding: 3px 8px; border-radius: 4px;">ID: CERT-04</span>
+                            <span style="font-size: 1.1rem;">🤝</span>
+                        </div>
+                        <h5 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin: 0 0 6px 0;">User Escalation Adherence Management</h5>
+                        <p style="font-size: 0.85rem; color: #a0a0a5; margin: 0; line-height: 1.4;">Advanced user case handling, incident mapping methods, and escalation pathway administration rules.</p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 10px;">
+                        <span style="color: rgba(255,255,255,0.4);">Issuer: <strong>Global Operations</strong></span>
+                        <span style="color: #2dd4bf; font-weight: 500;">Verified</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+    <style>
+        .cert-card:hover {
+            border-color: rgba(45, 212, 191, 0.3) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
+        }
+    </style>
+    
+    <div style="position: absolute; bottom: 30px; right: 5%; font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px;">Page | 06</div>
+</div>                        
                         
 </body>
 </html>
