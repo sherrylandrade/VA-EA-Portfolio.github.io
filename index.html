@@ -98,7 +98,7 @@
     <!-- FIX 1: Reduced layout gap from gap-12 to gap-8 to bring the directory and content closer horizontally -->
     <div class="flex flex-col md:flex-row gap-8 items-start">
         
-        <!-- 1. LEFT SIDEBAR: Directory Column -->
+<!-- 1. LEFT SIDEBAR: Directory Column -->
         <div class="w-full md:w-1/5 shrink-0 md:sticky md:top-28">
             <nav class="flex flex-col gap-4 text-xs font-mono tracking-wide text-emerald-500">
                 <!-- FIXED: Updated base text color to emerald-500 and configured line markers to hover to emerald-400 -->
@@ -106,9 +106,9 @@
                     <span class="w-4 h-[1px] bg-neutral-700 group-hover:bg-emerald-400 group-hover:w-6 transition-all"></span>
                     Introduction
                 </a>
-             
-
-                
+                <a href="#education" class="group flex items-center gap-2 hover:text-accentCyan transition-colors">
+                    <span class="w-4 h-[1px] bg-neutral-700 group-hover:bg-emerald-400 group-hover:w-6 transition-all"></span>
+                    Education
                 </a>
                 <a href="#core-services" class="group flex items-center gap-2 hover:text-accentCyan transition-colors">
                     <span class="w-4 h-[1px] bg-neutral-700 group-hover:bg-emerald-400 group-hover:w-6 transition-all"></span>
@@ -121,14 +121,13 @@
                 <a href="#certificates" class="group flex items-center gap-2 hover:text-accentCyan transition-colors">
                     <span class="w-4 h-[1px] bg-neutral-700 group-hover:bg-emerald-400 group-hover:w-6 transition-all"></span>
                     Certificates
-                </a>
+                </a>                
                 <a href="#workstation" class="group flex items-center gap-2 hover:text-accentCyan transition-colors">
                     <span class="w-4 h-[1px] bg-neutral-700 group-hover:bg-emerald-400 group-hover:w-6 transition-all"></span>
                     Workstation Setup
                 </a>
             </nav>
         </div>
-
         <!-- 2. RIGHT SIDE: Profile Card & Main Subsections content -->
         <!-- CLEANED: Removed the bad master negative margins that broke the layout in image-1 -->
         <div class="w-full md:w-4/5 flex flex-col space-y-16">
