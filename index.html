@@ -1,1008 +1,803 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sherryl Andrade | Virtual Assistant</title>
+    <title>Sherryl Andrade — VA - Executive Assistant</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#090a0f',
+                        panelBg: '#12131a',
+                        accentBlue: '#0070f3',
+                        accentCyan: '#06b6d4'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font & Lucide Icons via CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #161719;
-            color: #ffffff;
-            min-height: 100vh;
-            overflow-x: hidden;
-            overflow-y: auto;
-            scroll-behavior: smooth;
-        }
-
-        /* Fixed Top Navigation Bar */
-        .navbar {
-            width: 100%;
-            height: 80px;
-            background-color: #1c1d1f;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 50px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100;
-        }
-
-        .nav-logo {
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links-right {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .nav-item {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
-            cursor: pointer;
-        }
-
-        .nav-item:hover {
-            color: #ffffff;
-        }
-
-        /* PAGE 1: Landing Page Container */
-        .page-one {
-            display: flex;
-            height: 100vh;
-            width: 100vw;
-            padding-top: 80px; 
-        }
-
-        .image-side {
-            flex: 1;
-            background-color: #222;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .image-side img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%);
-        }
-
-        .content-side {
-            flex: 1.2;
-            background-color: #1c1d1f;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 10%;
-            position: relative;
-        }
-
-        .hero-title-container {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .hero-title {
-            font-size: 5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -2px;
-        }
-
-        .line-accent {
-            flex-grow: 1;
-            height: 2px;
-            background-color: rgba(255, 255, 255, 0.4);
-            margin-top: -10px;
-        }
-
-        .hero-subtitle {
-            font-size: 4.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            margin-bottom: 15px;
-        }
-
-        .role-badge {
-            font-size: 1.1rem;
-            color: #2dd4bf;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 35px;
-        }
-
-        .hero-description {
-            font-size: 1.05rem;
-            color: #a0a0a5;
-            line-height: 1.6;
-            max-width: 480px;
-            margin-bottom: 40px;
-        }
-
-        .btn-explore {
-            background-color: #ffffff;
-            color: #1c1d1f;
-            text-decoration: none;
-            padding: 16px 36px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            border: none;
-            transition: opacity 0.2s;
-        }
-
-        .btn-explore:hover { opacity: 0.9; }
-
-        /* Directory Setup */
-        .directory-container {
-            background: linear-gradient(145deg, #18191b, #222427);
-            padding: 35px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.05);
-        }
-
-        .section-directory { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-
-        .directory-item {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.35);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 12px 16px;
-            border-radius: 6px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .directory-item:hover {
-            color: #2dd4bf;
-            background: rgba(45, 212, 191, 0.04);
-            padding-left: 24px;
-            text-shadow: 0 0 10px rgba(45, 212, 191, 0.4);
-            border-bottom: 1px solid rgba(45, 212, 191, 0.2);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .directory-item::after { content: '→'; opacity: 0; transform: translateX(-10px); transition: all 0.3s ease; }
-        .directory-item:hover::after { opacity: 1; transform: translateX(0); }
-
-        /* Core Services setup */
-        .service-card {
-            background-color: #1c1d1f;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            padding: 40px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .service-card:hover { transform: translateY(-5px); border-color: rgba(45, 212, 191, 0.2); }
-        
-        .service-tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            background-color: rgba(45, 212, 191, 0.1);
-            color: #2dd4bf;
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-right: 6px;
-            margin-bottom: 8px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        /* Timeline Structural Styles */
-        .timeline-container { position: relative; max-width: 1000px; margin: 0 auto; padding-left: 30px; border-left: 2px solid rgba(255, 255, 255, 0.05); }
-        .timeline-card { position: relative; background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); padding: 35px; border-radius: 8px; margin-bottom: 30px; transition: all 0.3s ease; }
-        .timeline-card:hover { border-color: rgba(45, 212, 191, 0.2); transform: translateX(5px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .timeline-dot { position: absolute; left: -42px; top: 40px; width: 10px; height: 10px; border-radius: 50%; background-color: #333; border: 2px solid #161719; transition: background-color 0.3s ease; }
-        .timeline-card:hover .timeline-dot { background-color: #2dd4bf; box-shadow: 0 0 10px #2dd4bf; }
-        .time-badge { display: inline-block; font-size: 0.8rem; color: #2dd4bf; background-color: rgba(45, 212, 191, 0.08); padding: 4px 14px; border-radius: 30px; font-weight: 600; margin-bottom: 15px; }
-
-        /* PAGE 5: Responsive Video Embed Frame */
-        .embed-video-container {
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* Aspect Ratio 16:9 */
-            position: relative;
-            background-color: #121314;
-            border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-        }
-
-        .embed-video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* Horizontal Slider Matrix Layout */
-        .gallery-slider-box {
-            position: relative;
-            background-color: #1c1d1f;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        .slider-scroll-track {
-            display: flex;
-            gap: 30px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            padding-bottom: 15px;
-        }
-
-        /* Hide Scrollbar across platforms while keeping behavior */
-        .slider-scroll-track::-webkit-scrollbar { display: none; }
-        .slider-scroll-track { -ms-overflow-style: none; scrollbar-width: none; }
-
-        .slider-node {
-            min-width: 100%;
-            scroll-snap-align: start;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .gallery-img-wrapper {
-            width: 100%;
-            height: 240px;
-            background-color: #121314;
-            border-radius: 6px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(255,255,255,0.01);
-        }
-
-        .gallery-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .slider-controls {
-            display: flex;
-            justify-content: flex-end;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .ctrl-arrow {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: transparent;
-            color: #ffffff;
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-
-        .ctrl-arrow:hover {
-            border-color: #2dd4bf;
-            color: #2dd4bf;
-            background: rgba(45, 212, 191, 0.05);
-        }
-
-        @media (max-width: 950px) {
-            .navbar { padding: 0 20px; }
-            .page-one { flex-direction: column; height: auto; }
-            .image-side { height: 40vh; width: 100vw; }
-            .content-side { padding: 60px 20px; }
-            .hero-title, .hero-subtitle { font-size: 3rem; }
-            .line-accent { display: none; }
-            .split-grid { grid-template-columns: 1fr !important; gap: 50px !important; }
-            .services-grid { grid-template-columns: 1fr !important; }
-            .testimonial-layout { grid-template-columns: 1fr !important; gap: 40px !important; }
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #090a0f; color: #f3f4f6; }
+        .page-viewport { display: none; }
+        .page-viewport.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between selection:bg-accentBlue selection:text-white">
 
-    <!-- Header Navbar -->
-    <nav class="navbar">
-        <div class="nav-logo">Sherryl Andrade</div>
-        <div class="nav-links-right">
-            <a href="#" class="nav-item">Home</a>
-            <a href="#about" class="nav-item">About Me</a>
-            <a href="#services" class="nav-item">Core Services</a>
-            <a href="#experience" class="nav-item">Experience</a>
-            <a href="#testimonials" class="nav-item">Testimonials</a>
-            <a href="#cta-landing" style="font-family: inherit; font-size: inherit; color: inherit; text-decoration: none; cursor: pointer;">Contact</a>
+    <!-- GLOBAL HEADER NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-darkBg/80 backdrop-blur-md border-b border-white/5">
+        <!-- Location Indicator -->
+        <div class="text-xs font-medium tracking-wide text-neutral-400 bg-white/5 px-3 py-1.5 rounded-full border border-accentCyan/10">
+            🇵🇭 Philippines
         </div>
-    </nav>
 
-    <!-- PAGE 1: Landing Page -->
-    <div class="page-one">
-        <div class="image-side">
-            <img src="avatar.jpg" alt="Sherryl Andrade">
-        </div>
-        <div class="content-side">
-            <div class="hero-title-container">
-                <div class="hero-title">My</div>
-                <div class="line-accent"></div>
-            </div>
-            <div class="hero-subtitle">Portfolio</div>
-            <div class="role-badge">Virtual Assistant</div>
-            <div class="hero-description">
-                High-level administrative management and calm operational support for founders, CEOs, and busy executives. I run your background operations with flawless precision, protecting your calendar, triaging your inbox, and safeguarding your professional reputation so you can focus entirely on scaling.
-            </div>
-            <div class="action-group">
-                <button class="btn-explore" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Explore Now</button>
-            </div>
-            <div style="position: absolute; bottom: 20px; right: 5%; font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px;">Page | 01</div>
-        </div>
-    </div>
+        <!-- Central Navigation Pill -->
+        <nav class="flex items-center gap-1 bg-accentCyan-900/90 border border-accentCyan/25 rounded-full px-2 py-1.5 shadow-xl shadow-accentCyan/10">
+            <button onclick="switchPage('home')" id="nav-home" class="nav-btn flex items-center justify-center p-2 rounded-full text-neutral-400 hover:text-accentCyan transition-all duration-200">
+                <i data-lucide="home" class="w-4 h-4"></i>
+            </button>
+            <button onclick="switchPage('about')" id="nav-about" class="nav-btn flex items-center gap-2 text-xs font-medium px-4 py-1.5 rounded-full text-neutral-400 hover:text-accentCyan transition-all duration-200">
+                <i data-lucide="user" class="w-3.5 h-3.5"></i>About
+            </button>
+            <button onclick="switchPage('work')" id="nav-work" class="nav-btn flex items-center gap-2 text-xs font-medium px-4 py-1.5 rounded-full text-neutral-400 hover:text-accentCyan transition-all duration-200">
+                <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>Work
+            </button>
+            <button onclick="switchPage('testimonials')" id="nav-testimonials" class="nav-btn flex items-center gap-2 text-xs font-medium px-4 py-1.5 rounded-full text-neutral-400 hover:text-accentCyan transition-all duration-200">
+                <i data-lucide="star" class="w-3.5 h-3.5"></i>Testimonials
+            </button>
+            <button onclick="switchPage('contact')" id="nav-contact" class="nav-btn flex items-center gap-2 text-xs font-medium px-4 py-1.5 rounded-full text-neutral-400 hover:text-accentCyan transition-all duration-200">
+                <i data-lucide="mail" class="w-3.5 h-3.5"></i>Contact
+            </button>
+        </nav>
 
-    <!-- PAGE 2: About Me Section -->
-    <div id="about" style="background-color: #1c1d1f; min-height: 100vh; width: 100vw; display: flex; align-items: center; padding: 120px 8% 80px 8%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03);">
-        <div class="split-grid" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 8%; width: 100%; max-width: 1200px; margin: 0 auto;">
-            <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h2 style="font-size: 5rem; font-weight: 700; letter-spacing: -2px; line-height: 1.1; margin-bottom: 30px;">
+        <!-- Live Clock -->
+        <div id="live-clock" class="text-xs font-mono tracking-widest text-neutral-400 min-w-[70px] text-right">
+            00:00:00
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CANVAS -->
+    <main class="flex-grow pt-36 pb-16 max-w-6xl w-full mx-auto px-6">
+
+        <!-- ================= HOME PAGE ================= -->
+        <section id="page-home" class="page-viewport active">
+            <div class="text-center max-w-3xl mx-auto mt-5">
+                <div class="inline-flex items-center gap-2 text-xs text-accentCyan bg-accentCyan/5 border border-accentCyan/10 rounded-full px-4 py-1.5 mb-8 font-medium tracking-wider uppercase">
+                    My Portfolio
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-accentBlue/50 mb-8 leading-[1.1]">
+                    Bringing elite order to executive chaos.
+                </h1>
+                <p class="text-lg md:text-xl text-neutral-400 font-light leading-relaxed mb-12 max-w-2xl mx-auto">
+                    High-level administrative management and calm operational support for founders, CEOs, and busy executives. I run your background operations with flawless precision, protecting your calendar, triaging your inbox, and safeguarding your professional reputation so you can focus entirely on scaling.
+                </p>
+                
+                <button onclick="switchPage('about')" class="inline-flex items-center gap-3 bg-emerald-500/5 border border-emerald-500/15 hover:border-emerald-500/20 text-emerald-500 hover:text-accentCyan font-medium text-sm px-4 py-2 rounded-full transition-all group shadow-md">
+                <!-- Replace 'your-profile-image.jpg' with your image link -->
+                    <img src="avatar.jpg" alt="Sherryl Andrade" class="w-6 h-6 rounded-full object-cover border border-emerald-500/20">
+                    <span>About — Sherryl Andrade</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-emerald-500 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </section>
+<!-- ================= ABOUT SECTION ================= -->
+<section id="page-about" class="page-viewport max-w-7xl mx-auto px-4 pt-4 pb-16">
+    
+    <!-- FIX 1: Reduced layout gap from gap-12 to gap-8 to bring the directory and content closer horizontally -->
+    <div class="flex flex-col md:flex-row gap-8 items-start">
+        
+        <!-- 1. LEFT SIDEBAR: Directory Column -->
+        <div class="w-full md:w-1/5 shrink-0 md:sticky md:top-28">
+            <nav class="flex flex-col gap-4 text-xs font-mono tracking-wide text-emerald-500">
+                <!-- FIXED: Updated base text color to emerald-500 and configured line markers to hover to emerald-400 -->
+                <a href="#about-intro" class="group flex items-center gap-2 hover:text-accentCyan transition-colors">
+                    <span class="w-4 h-[1px] bg-neutral-700 group-hover:bg-emerald-400 group-hover:w-6 transition-all"></span>
                     Introduction
-                    <div style="width: 120px; height: 2px; background-color: rgba(255, 255, 255, 0.4); margin-top: 15px;"></div>
-                </h2>
-                <p style="font-size: 1.05rem; color: #a0a0a5; line-height: 1.6; margin-bottom: 50px; max-width: 520px;">
-                    I am a reliable, detail-oriented Freelance Executive Assistant specializing in high-trust business administration and lifestyle management. Rooted in corporate coordination, I serve as a quiet force running operations in the background, proactively catching missed details, organizing chaotic structures, and making sure busy professionals are always prepared and on top of everything.
-                </p>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 550px;">
+                </a>
+                <a href="#core-services" class="group flex items-center gap-2 hover:text-accentCyan transition-colors">
+                    <span class="w-4 h-[1px] bg-neutral-700 group-hover:bg-emerald-400 group-hover:w-6 transition-all"></span>
+                    Core Services
+                </a>
+                <a href="#skills-tools" class="group flex items-center gap-2 hover:text-accentCyan transition-colors">
+                    <span class="w-4 h-[1px] bg-neutral-700 group-hover:bg-emerald-400 group-hover:w-6 transition-all"></span>
+                    Skills & Tools
+                </a>
+                <a href="#certificates" class="group flex items-center gap-2 hover:text-accentCyan transition-colors">
+                    <span class="w-4 h-[1px] bg-neutral-700 group-hover:bg-emerald-400 group-hover:w-6 transition-all"></span>
+                    Certificates
+                </a>
+                <a href="#workstation" class="group flex items-center gap-2 hover:text-accentCyan transition-colors">
+                    <span class="w-4 h-[1px] bg-neutral-700 group-hover:bg-emerald-400 group-hover:w-6 transition-all"></span>
+                    Workstation Setup
+                </a>
+            </nav>
+        </div>
+
+        <!-- 2. RIGHT SIDE: Profile Card & Main Subsections content -->
+        <!-- CLEANED: Removed the bad master negative margins that broke the layout in image-1 -->
+        <div class="w-full md:w-4/5 flex flex-col space-y-16">
+            
+            <!-- Subsection 1: About Intro -->
+            <!-- FIX 2: Added md:-mt-6 here to pull ONLY the Introduction section content up into the empty top space safely -->
+            <div id="about-intro" class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start scroll-mt-28 md:-mt-6">
+                <!-- Left Side Profile Metadata Stack -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-48 h-48 rounded-full bg-gradient-to-b from-neutral-800 to-neutral-950 p-1 border border-white/10 flex items-center justify-center overflow-hidden mb-6 shadow-xl">
+                        <img src="avatar.jpg" alt="Sherryl Andrade" class="w-full h-full rounded-full object-cover">
+                    </div>
+                    <h2 class="text-3xl font-bold text-white tracking-tight">Sherryl Andrade</h2>
+                    <p class="text-neutral-400 mt-2 font-medium text-sm">Customer Service Specialist:</p>
+                    <p class="text-neutral-500 font-medium text-sm">Phone & Email Support</p>
+                </div>
+
+                <!-- Right Side Professional Biography paragraphs -->
+                <div class="lg:col-span-2 space-y-6 lg:pt-4">
                     <div>
-                        <h3 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin-bottom: 12px; letter-spacing: 0.5px;">About Me</h3>
-                        <p style="font-size: 0.9rem; color: #8a8a8f; line-height: 1.6;">
-                            Whether managing intricate executive calendars, triaging critical inboxes, or serving as a high-trust liaison across remote teams, I confidently shoulder operational weight. I notice the friction before it hits your desk.
+                        <span class="text-[10px] font-mono uppercase tracking-widest text-accentBlue block mb-2">Professional Biography</span>
+                        <p class="text-neutral-300 text-sm md:text-base leading-relaxed font-light">
+                            Dedicated customer advocacy professional specializing in phone and email resolution metrics. Experienced across modern cloud CRM tracking suites, complex user troubleshooting trees, and maintaining record-high CSAT benchmarks.
                         </p>
                     </div>
+
+                    <!-- Mission & Vision Subgrids -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-white/5">
+                        <div>
+                            <h4 class="text-accentCyan text-xs font-bold flex items-center gap-2 mb-1">
+                                <i data-lucide="target" class="w-4 h-4 text-purple-400"></i> Our Mission
+                            </h4>
+                            <p class="text-neutral-400 text-xs leading-relaxed font-light">To convert challenging technical errors and multi-channel tickets into streamlined resolution interactions using clear, empathetic voice and text support guidelines.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-accentCyan text-xs font-bold flex items-center gap-2 mb-1">
+                                <i data-lucide="eye" class="w-4 h-4 text-purple-400"></i> Our Vision
+                            </h4>
+                            <p class="text-neutral-400 text-xs leading-relaxed font-light">Elevating front-line ticketing processes to maintain complete compliance, rapid case resolution, and absolute client-brand affinity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="border-white/5">
+
+            <!-- Subsection 2: Core Services Matrix -->
+            <div id="core-services" class="scroll-mt-28">
+                <span class="text-xs font-mono uppercase tracking-widest text-accentBlue block mb-6">Core Services</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-neutral-900/40 border border-white/5 rounded-xl p-5 :border-white/10 transition-colors">
+                        <i data-lucide="phone" class="w-5 h-5 text-accentCyan mb-3"></i>
+                        <h3 class="text-white font-semibold mb-1">Inbound & Outbound Phone Support</h3>
+                        <p class="text-neutral-400 text-sm font-light leading-relaxed">Real-time troubleshooting, queue management, call standard adherence, and rapid ticket initialization.</p>
+                    </div>
+                    <div class="bg-neutral-900/40 border border-white/5 rounded-xl p-5 hover:border-white/10 transition-colors">
+                        <i data-lucide="mail" class="w-5 h-5 text-accentCyan mb-3"></i>
+                        <h3 class="text-white font-semibold mb-1">Email Ticketing & Async Resolution</h3>
+                        <p class="text-neutral-400 text-sm font-light leading-relaxed">Clear technical documentation responses, macro-driven compliance, and deep case file logging updates.</p>
+                    </div>
+                    <div class="bg-neutral-900/40 border border-white/5 rounded-xl p-5 hover:border-white/10 transition-colors">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-accentCyan mb-3"></i>
+                        <h3 class="text-white font-semibold mb-1">Account Security Verification</h3>
+                        <p class="text-neutral-400 text-sm font-light leading-relaxed">Managing client record balances, authorization protocol overrides, and strict data privacy compliance rules.</p>
+                    </div>
+                    <div class="bg-neutral-900/40 border border-white/5 rounded-xl p-5 hover:border-white/10 transition-colors">
+                        <i data-lucide="cpu" class="w-5 h-5 text-accentCyan mb-3"></i>
+                        <h3 class="text-white font-semibold mb-1">CRM Technical Troubleshooting</h3>
+                        <p class="text-neutral-400 text-sm font-light leading-relaxed">System workflow mastery across Zendesk, Kustomer, Stripe billing portals, and database search queries.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-white/5">
+
+            <!-- Subsection 3: Skills & Tools -->
+            <div id="skills-tools" class="grid grid-cols-1 md:grid-cols-2 gap-8 scroll-mt-28">
+                <div class="bg-neutral-900/20 border border-white/5 rounded-2xl p-6">
+                    <span class="text-xs font-mono uppercase tracking-widest text-accentBlue block mb-6">Skills</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Attention To Detail</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Calls Handling - Inbound</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Calls Handling - Outbound</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Chat Support</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Customer Management</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Customer Support</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Email Support</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Escalations Management</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Files/Documents Management</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Leadership</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Phone Support</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Positive Scripting</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Project Coordination</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Project Documentation</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Quality Assurance</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Sales</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Technical Support</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Troubleshooting</span>
+                    </div>
+                </div>
+
+                <div class="bg-neutral-900/20 border border-white/5 rounded-2xl p-6">
+                    <span class="text-xs font-mono uppercase tracking-widest text-accentBlue block mb-6">Tools</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Aircall</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Asana</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Basecamp</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">CRM</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Drive</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Excel</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">GMeet</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Gmail</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Google Calendar</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Google Chat</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Google Sheets</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Google Workspace</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Gorgias</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Hubspot</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Salesforce</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Shopify</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Slack</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">WhatsApp</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Workday</span>
+                        <span class="px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-xs text-neutral-300">Zendesk</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-white/5">
+
+            <!-- Subsection 4: Certificates -->
+            <div id="certificates" class="scroll-mt-28">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 bg-gradient-to-r from-purple-950/30 to-neutral-900/40 border border-white/5 rounded-2xl p-6 mb-8">
+                    <div class="w-20 h-20 shrink-0 bg-neutral-950/50 rounded-xl p-2 border border-white/10 flex items-center justify-center">
+                        <img src="verified ClickUp power badge.png" alt="Verified ClickUp Power User" class="w-full h-full object-contain">
+                    </div>
                     <div>
-                        <h3 style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin-bottom: 12px; letter-spacing: 0.5px;">My Mission</h3>
-                        <p style="font-size: 0.9rem; color: #8a8a8f; line-height: 1.6;">
-                            To provide premium, high-integrity administrative support that gives founders and leaders their time back, securing absolute operational consistency day in and day out.
+                        <span class="text-xs font-mono uppercase tracking-widest text-accentCyan block mb-1">Platform Verification</span>
+                        <h3 class="text-xl font-bold text-white tracking-tight">Verified ClickUp Power User</h3>
+                        <p class="text-neutral-400 text-sm font-light leading-relaxed mt-0.5">Officially authenticated structural automation setups across active workspaces.</p>
+                    </div>
+                </div>
+
+                <span class="text-xs font-mono uppercase tracking-widest text-accentBlue block mb-6">Certificates</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-neutral-900/40 border border-white/5 rounded-xl p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="w-full aspect-[4/3] rounded-lg bg-neutral-950 border border-white/10 mb-4 overflow-hidden">
+                                <img src="ai-skills.png" alt="ClickUp Advanced AI Certificate Thumbnail" class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="text-white font-medium text-base leading-tight">ClickUp Advanced AI Certificate of Completion</h4>
+                            <p class="text-neutral-400 text-xs mt-1">Issued May 2026</p>
+                        </div>
+                        <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-500">
+                            <span>ID: <span class="text-neutral-300">arvrzh4t4npe</span></span>
+                            <a href="https://verify.skilljar.com/c/arvrzh4t4npe" target="_blank" class="text-accentCyan hover:underline flex items-center gap-1">Verify <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-900/40 border border-white/5 rounded-xl p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="w-full aspect-[4/3] rounded-lg bg-neutral-950 border border-white/10 mb-4 overflow-hidden">
+                                <img src="intermediate.png" alt="Build Your First Workflow Intermediate Thumbnail" class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="text-white font-medium text-base leading-tight">Build Your First Workflow (Intermediate)</h4>
+                            <p class="text-neutral-400 text-xs mt-1">Issued May 2026</p>
+                        </div>
+                        <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-500">
+                            <span>ID: <span class="text-neutral-300">5cz5u5rsbpyf</span></span>
+                            <a href="https://verify.skilljar.com/c/5cz5u5rsbpyf" target="_blank" class="text-accentCyan hover:underline flex items-center gap-1">Verify <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-900/40 border border-white/5 rounded-xl p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="w-full aspect-[4/3] rounded-lg bg-neutral-950 border border-white/10 mb-4 overflow-hidden">
+                                <img src="novice.png" alt="ClickUp Novice Certificate Thumbnail" class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="text-white font-medium text-base leading-tight">ClickUp Novice Certificate of Completion</h4>
+                            <p class="text-neutral-400 text-xs mt-1">Issued May 2026</p>
+                        </div>
+                        <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-500">
+                            <span>ID: <span class="text-neutral-300">7y9c8oxhadq2</span></span>
+                            <a href="https://verify.skilljar.com/c/7y9c8oxhadq2" target="_blank" class="text-accentCyan hover:underline flex items-center gap-1">Verify <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-white/5">
+
+            <!-- Subsection 5: Workstation Setup -->
+            <div id="workstation" class="scroll-mt-28">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+                    <div>
+                        <span class="text-xs font-mono uppercase tracking-widest text-accentBlue block mb-2">Workstation Setup</span>
+                        <h2 class="text-3xl font-bold text-white tracking-tight">Technical Infrastructure</h2>
+                    </div>
+                    <p class="text-neutral-400 text-sm max-w-md font-light leading-relaxed md:text-right">
+                        High-availability production environment configured for uninterrupted uptime, low-latency communication networks, and reliable workflow execution data.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-1 bg-neutral-900/40 border border-white/5 rounded-2xl p-4 flex flex-col justify-between">
+                        <div class="relative aspect-[4/3] w-full bg-neutral-950 rounded-xl overflow-x-auto snap-x snap-mandatory flex items-center scrollbar-thin scrollbar-thumb-white/10">
+                            <div class="snap-center shrink-0 w-full h-full p-1">
+                                <img src="System Specs-1.JPG" alt="OS Specifications Benchmark Card 1" class="w-full h-full object-cover rounded-lg opacity-80">
+                            </div>
+                            <div class="snap-center shrink-0 w-full h-full p-1">
+                                <img src="System Specs-2.JPG" alt="OS Specifications Benchmark Card 2" class="w-full h-full object-cover rounded-lg opacity-80">
+                            </div>
+                            <div class="snap-center shrink-0 w-full h-full p-1">
+                                <img src="Speed Test 6-22-2026.jpg" alt="Starlink ISP Speed Verification Metrics" class="w-full h-full object-cover rounded-lg opacity-80">
+                            </div>
+                            <div class="snap-center shrink-0 w-full h-full p-1">
+                                <img src="HomeOffice1.jpg" alt="Sherryl Andrade Workstation Setup - Desk Overview" class="w-full h-full object-cover rounded-lg opacity-80">
+                            </div>
+                            <div class="snap-center shrink-0 w-full h-full p-1">
+                                <img src="HomeOffice2.jpg" alt="Sherryl Andrade Workstation Setup - Workspace Alternate" class="w-full h-full object-cover rounded-lg opacity-80">
+                            </div>
+                            <div class="snap-center shrink-0 w-full h-full p-1">
+                                <img src="HomeOffice3.jpg" alt="Sherryl Andrade Workstation Setup - Desktop Context" class="w-full h-full object-cover rounded-lg opacity-80">
+                            </div>
+                            <div class="snap-center shrink-0 w-full h-full p-1">
+                                <img src="HeadSetWithNoiseCancelling1.jpg" alt="Audio Peripheral Setup - Primary" class="w-full h-full object-cover rounded-lg opacity-80">
+                            </div>
+                            <div class="snap-center shrink-0 w-full h-full p-1">
+                                <img src="HeadSetWithNoiseCancelling2.jpg" alt="Audio Peripheral Setup - Detail View" class="w-full h-full object-cover rounded-lg opacity-80">
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-center gap-1.5 mt-3 text-[10px] font-mono uppercase tracking-wider text-neutral-500">
+                            <i data-lucide="move-horizontal" class="w-3 h-3 text-accentCyan"></i>
+                            <span>Swipe or Scroll horizontally to view setup images</span>
+                        </div>
+
+                        <p class="text-neutral-400 text-xs font-light leading-relaxed mt-3 text-center px-2">
+                            Monitored workstation architecture running active desktop process isolation matrix and high-fidelity voice parameters.
                         </p>
                     </div>
-                </div>
-            </div>
 
-            <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 style="font-size: 0.85rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; padding-left: 5px;">Portfolio Directory</h3>
-                <div class="directory-container">
-                    <ul class="section-directory">
-                        <li class="directory-item" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Core Services</li>
-                        <li class="directory-item" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Skills</li>
-                        <li class="directory-item" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Tools & Platforms</li>
-                        <li class="directory-item" onclick="document.getElementById('experience').scrollIntoView({behavior: 'smooth'})">Work Experience</li>
-                        <li class="directory-item" onclick="document.getElementById('testimonials').scrollIntoView({behavior: 'smooth'})">Client Testimonials</li>
-                        <li class="directory-item" onclick="document.getElementById('testimonials').scrollIntoView({behavior: 'smooth'})">Customer Feedback</li>
-                        <li class="directory-item" onclick="document.getElementById('certificates').scrollIntoView({behavior: 'smooth'})">Licenses & Certifications</li>
-                        <li class="directory-item" onclick="event.preventDefault(); event.stopPropagation(); var target = document.getElementById('infrastructure'); if(target) { var parent = target.parentElement; while(parent && parent !== document.body) { if(parent.scrollWidth > parent.clientWidth) { parent.style.scrollSnapType = 'none'; parent.scrollTo({ left: target.offsetLeft, behavior: 'smooth' }); setTimeout(function() { parent.style.scrollSnapType = ''; }, 600); break; } parent = parent.parentElement; } target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }); }">Technical Infrastructure</li>
-                        <li class="directory-item" onclick="document.getElementById('cta-landing').scrollIntoView({behavior: 'smooth'})">Call to Action</li>                        
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div style="position: absolute; bottom: 20px; right: 5%; font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px;">Page | 02</div>
-    </div>
-
-    <!-- PAGE 3: Core Services Section -->
-    <div id="services" style="background-color: #121314; min-height: 100vh; width: 100vw; display: flex; align-items: center; padding: 120px 8% 80px 8%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03);">
-        <div style="width: 100%; max-width: 1200px; margin: 0 auto;">
-            <div style="margin-bottom: 60px;">
-                <h3 style="font-size: 0.85rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">What I Do Best</h3>
-                <h2 style="font-size: 4rem; font-weight: 700; letter-spacing: -2px; line-height: 1.1;">Core Services</h2>
-                <div style="width: 80px; height: 2px; background-color: rgba(255, 255, 255, 0.2); margin-top: 20px;"></div>
-            </div>
-            <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;">
-                <div class="service-card">
-                    <h4 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 15px; color: #ffffff;">Executive Operations & Project Tracking</h4>
-                    <p style="font-size: 0.95rem; color: #a0a0a5; line-height: 1.6; margin-bottom: 25px;">
-                        End-to-end execution of cross-functional team workflows. I build structural roadmaps, track timeline milestones with clinical focus, and ensure your team stays aligned without needing your direct oversight.
-                    </p>
-                    <div>
-                        <span class="service-tag">Asana</span><span class="service-tag">Basecamp</span><span class="service-tag">Slack</span><span class="service-tag">File Management</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <h4 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 15px; color: #ffffff;">Calendar & Inbox Triage</h4>
-                    <p style="font-size: 0.95rem; color: #a0a0a5; line-height: 1.6; margin-bottom: 25px;">
-                        High-tier calendar optimization and gatekeeping. Proactively managing scheduling constraints, sorting high-priority communication, handling data syncs, and securely organizing sensitive administrative files.
-                    </p>
-                    <div>
-                        <span class="service-tag">Salesforce</span><span class="service-tag">Hubspot</span><span class="service-tag">Excel</span><span class="service-tag">Google Workspace</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <h4 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 15px; color: #ffffff;">Stakeholder & Client Experience</h4>
-                    <p style="font-size: 0.95rem; color: #a0a0a5; line-height: 1.6; margin-bottom: 25px;">
-                        Serving as a trusted, professional liaison for your clients and stakeholders. Handling critical escalations, managing key communication loops via email or chat, and executing high-standard support workflows with absolute discretion.
-                    </p>
-                    <div>
-                        <span class="service-tag">Zendesk</span><span class="service-tag">Gorgias</span><span class="service-tag">Aircall</span><span class="service-tag">Shopify</span>
+                    <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-neutral-900/20 border border-white/5 rounded-xl p-5">
+                            <div class="flex items-center gap-3 text-white font-medium mb-3">
+                                <i data-lucide="settings" class="w-4 h-4 text-neutral-400"></i>
+                                <span>System Specifications</span>
+                            </div>
+                            <ul class="space-y-1.5 text-sm text-neutral-400 font-light">
+                                <li>• <strong class="text-neutral-300 font-medium">OS:</strong> Windows 11 System</li>
+                                <li>• <strong class="text-neutral-300 font-medium">CPU:</strong> Intel i5-9300H (2.40 GHz)</li>
+                                <li>• <strong class="text-neutral-300 font-medium">RAM:</strong> 12GB Capacity</li>
+                            </ul>
+                        </div>
+                        <div class="bg-neutral-900/20 border border-white/5 rounded-xl p-5">
+                            <div class="flex items-center gap-3 text-white font-medium mb-3">
+                                <i data-lucide="wifi" class="w-4 h-4 text-neutral-400"></i>
+                                <span>Primary Network Link</span>
+                            </div>
+                            <ul class="space-y-1.5 text-sm text-neutral-400 font-light">
+                                <li>• <strong class="text-neutral-300 font-medium">Link:</strong> Starlink Satellite</li>
+                                <li>• <strong class="text-neutral-300 font-medium">Speed:</strong> 100+ Mbps Dn / 25+ Up</li>
+                                <li>• <strong class="text-neutral-300 font-medium">Core:</strong> Wired Ethernet Connection</li>
+                            </ul>
+                        </div>
+                        <div class="bg-neutral-900/20 border border-white/5 rounded-xl p-5">
+                            <div class="flex items-center gap-3 text-white font-medium mb-3">
+                                <i data-lucide="headphones" class="w-4 h-4 text-neutral-400"></i>
+                                <span>Audio Peripherals</span>
+                            </div>
+                            <ul class="space-y-1.5 text-sm text-neutral-400 font-light">
+                                <li>• <strong class="text-neutral-300 font-medium">Hardware:</strong> Onikuma X15 Headset</li>
+                                <li>• <strong class="text-neutral-300 font-medium">Mic:</strong> HD Noise Reduction Microphone</li>
+                            </ul>
+                        </div>
+                        <div class="bg-neutral-900/20 border border-white/5 rounded-xl p-5">
+                            <div class="flex items-center gap-3 text-white font-medium mb-3">
+                                <i data-lucide="battery-charging" class="w-4 h-4 text-neutral-400"></i>
+                                <span>Failover Redundancies</span>
+                            </div>
+                            <ul class="space-y-1.5 text-sm text-neutral-400 font-light">
+                                <li>• <strong class="text-neutral-300 font-medium">Power Backup:</strong> Bluetti EB70 Power Supply</li>
+                                <li>• <strong class="text-neutral-300 font-medium">Backup Net:</strong> Mobile Hotspot Standby</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div style="position: absolute; bottom: 20px; right: 5%; font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px;">Page | 03</div>
+
+        </div> <!-- /RIGHT SIDEBAR CONTAINER -->
+    </div> <!-- /FLEX WRAPPER -->
+</section>
+
+<!-- ================= WORK EXPERIENCE PAGE ================= -->
+        <section id="page-work" class="page-viewport">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mt-4">
+                <div class="md:col-span-1 md:sticky md:top-36 space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center border border-white/10">
+                            <i data-lucide="list-ordered" class="w-5 h-5 text-neutral-400"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white tracking-tight">Work History</h2>                          
+                        </div>
+                    </div>
+                    <p class="text-sm text-neutral-400 leading-relaxed font-light">
+                        A detailed timeline of technical and customer support engineering, tier-2 escalation handling, and customer success management milestones.
+                    </p>
+                </div>
+
+                <div class="md:col-span-2 space-y-4">
+                    <!-- Item 1 -->
+                    <div class="p-6 rounded-xl bg-panelBg border border-white/5">
+                        <span class="text-xs font-mono text-accentBlue bg-accentBlue/10 px-2.5 py-1 rounded-md">Jan 2022 - Nov 2022 • 11 mos</span>
+                        <h4 class="text-lg font-bold text-white mt-3">Junior Customer Resolution Specialist - Tier 2 (TSR)</h4>
+                        <p class="text-xs text-neutral-400 font-medium mb-2">SupportNinja</p>
+                        <p class="text-xs text-neutral-400 leading-relaxed">Managed Tier 2 support for DoubleGood.com via inbound, outbound, and email channels, expertly resolving complex order, billing, and technical app/web issues. Handled escalated cases from Tier 1 specialists to ensure timely resolution using specialized tools like Kustomer, Aircall, PopSQL, ShipStation, Swagger, and Slack.</p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="p-6 rounded-xl bg-panelBg border border-white/5">
+                        <span class="text-xs font-mono text-accentBlue bg-accentBlue/10 px-2.5 py-1 rounded-md">May 2021 - Jan 2022 • 9 mos</span>
+                        <h4 class="text-lg font-bold text-white mt-3">Customer Resolution Specialist - Tier 1 (CSR)</h4>
+                        <p class="text-xs text-neutral-400 font-medium mb-2">SupportNinja</p>
+                        <p class="text-xs text-neutral-400 leading-relaxed">Delivered phone and email support for e-commerce brands, assisting with order status, product inquiries, and case tracking. Provided technical troubleshooting and documented interactions to maintain high-quality resolution standards.</p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="p-6 rounded-xl bg-panelBg border border-white/5">
+                        <span class="text-xs font-mono text-accentBlue bg-accentBlue/10 px-2.5 py-1 rounded-md">Nov 2020 - Apr 2021 • 6 mos</span>
+                        <h4 class="text-lg font-bold text-white mt-3">Technical Support Specialist</h4>
+                        <p class="text-xs text-neutral-400 font-medium mb-2">SupportNinja</p>
+                        <p class="text-xs text-neutral-400 leading-relaxed">Resolved technical and access-related discrepancies for global e-learning platforms via email and CRM tools. Managed billing inquiries using Stripe, ensuring all documented resolutions met strict service quality standards.</p>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="p-6 rounded-xl bg-panelBg border border-white/5">
+                        <span class="text-xs font-mono text-accentBlue bg-accentBlue/10 px-2.5 py-1 rounded-md">Oct 2019 - Oct 2020 • 1 yr</span>
+                        <h4 class="text-lg font-bold text-white mt-3">Customer Service Specialist</h4>
+                        <p class="text-xs text-neutral-400 font-medium mb-2">TELUS International Philippines</p>
+                        <p class="text-xs text-neutral-400 leading-relaxed">Managed mobility account support, overseeing billing, service renewals, and account activations via CRM systems. Resolved complex customer concerns while maintaining high service quality and strict adherence to operational compliance.</p>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="p-6 rounded-xl bg-panelBg border border-white/5">
+                        <span class="text-xs font-mono text-accentBlue bg-accentBlue/10 px-2.5 py-1 rounded-md">May 2019 - Oct 2019 • 6 mos</span>
+                        <h4 class="text-lg font-bold text-white mt-3">Customer Service Specialist</h4>
+                        <p class="text-xs text-neutral-400 font-medium mb-2">Concentrix</p>
+                        <p class="text-xs text-neutral-400 leading-relaxed">Delivered comprehensive inbound support for AT&T ADSL customers by managing technical assistance, billing inquiries, and CRM documentation to maximize satisfaction. Boosted revenue through proactive upselling, new account activations, contract renewals, and efficient order tracking.</p>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="p-6 rounded-xl bg-panelBg border border-white/5">
+                        <span class="text-xs font-mono text-accentBlue bg-accentBlue/10 px-2.5 py-1 rounded-md">Nov 2016 - Apr 2019 • 2 yrs 6 mos</span>
+                        <h4 class="text-lg font-bold text-white mt-3">Customer Service Specialist</h4>
+                        <p class="text-xs text-neutral-400 font-medium mb-2">Telus International</p>
+                        <p class="text-xs text-neutral-400 leading-relaxed">Delivered technical and sales support for AOL subscribers, resolving email access and connectivity issues over the phone. Guided customers through software troubleshooting and account management while meeting rigorous documentation standards.</p>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="p-6 rounded-xl bg-panelBg border border-white/5">
+                        <span class="text-xs font-mono text-accentBlue bg-accentBlue/10 px-2.5 py-1 rounded-md">Nov 2015 - Nov 2016 • 1 yr</span>
+                        <h4 class="text-lg font-bold text-white mt-3">Technical Support Specialist</h4>
+                        <p class="text-xs text-neutral-400 font-medium mb-2">Teleperformance</p>
+                        <p class="text-xs text-neutral-400 leading-relaxed">Delivered email-based technical assistance for consumer electronics, assisting with product setup and complex issue resolution. Guided users through hardware and software troubleshooting while maintaining high service quality and strict adherence to guidelines.</p>
+                    </div>
+
+                    <!-- Item 8 -->
+                    <div class="p-6 rounded-xl bg-panelBg border border-white/5">
+                        <span class="text-xs font-mono text-accentBlue bg-accentBlue/10 px-2.5 py-1 rounded-md">Mar 2014 - Oct 2015 • 1 yr 8 mos</span>
+                        <h4 class="text-lg font-bold text-white mt-3">Technical Support Specialist</h4>
+                        <p class="text-xs text-neutral-400 font-medium mb-2">Teleperformance</p>
+                        <p class="text-xs text-neutral-400 leading-relaxed">Provided real-time chat and email support for mobility customers, managing service activations and account security changes. Balanced high-volume inquiries during peak hours while ensuring documented interactions met compliance and quality standards.</p>
+                    </div>
+
+                    <!-- Item 9 -->
+                    <div class="p-6 rounded-xl bg-panelBg border border-white/5">
+                        <span class="text-xs font-mono text-accentBlue bg-accentBlue/10 px-2.5 py-1 rounded-md">Sep 2013 - Feb 2014 • 6 mos</span>
+                        <h4 class="text-lg font-bold text-white mt-3">Customer Service Representative</h4>
+                        <p class="text-xs text-neutral-400 font-medium mb-2">iQor</p>
+                        <p class="text-xs text-neutral-400 leading-relaxed">Managed inbound sales and order entry for catalog retail, leveraging upselling techniques to maximize order value. Resolved out-of-stock issues by offering alternative product solutions to ensure a positive buyer experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- ================= TESTIMONIALS PAGE ================= -->
+<section id="page-testimonials" class="page-viewport">
+    <div class="mb-12 max-w-xl">
+        <h2 class="text-3xl font-bold text-white tracking-tight">Testimonials</h2>
+        <p class="text-sm text-neutral-400 mt-2 font-light">
+            Commendations and Customer Feedback.
+        </p>
     </div>
 
-    <!-- PAGE 4: Work Experience Timeline Section -->
-    <div id="experience" style="background-color: #161719; min-height: 100vh; width: 100vw; padding: 120px 8% 80px 8%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03);">
-        <div style="width: 100%; max-width: 1200px; margin: 0 auto;">
-            <div style="margin-bottom: 60px; text-align: left;">
-                <h3 style="font-size: 0.85rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Professional History</h3>
-                <h2 style="font-size: 4rem; font-weight: 700; letter-spacing: -2px; line-height: 1.1;">Work Experience</h2>
-                <div style="width: 80px; height: 2px; background-color: rgba(255, 255, 255, 0.2); margin-top: 20px;"></div>
-            </div>
-
-            <div class="timeline-container">
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <div class="time-badge">Nov 2024 - Sep 2025 (10 m)</div>
-                    <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 5px;">Project Assistant Manager</h4>
-                    <h5 style="font-size: 1.05rem; color: #a0a0a5; font-weight: 500; margin-bottom: 15px;">ModSquad</h5>
-                    <p style="font-size: 0.95rem; color: #8a8a8f; line-height: 1.6;">Monitored operational KPIs and data-driven reports to identify growth opportunities and resolve process bottlenecks. Standardized project documentation and coordinated cross-functional workflows to ensure 100% adherence to timelines.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <div class="time-badge">Jul 2022 - Nov 2024 (2 yrs, 4 m)</div>
-                    <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 5px;">Lead Consultant</h4>
-                    <h5 style="font-size: 1.05rem; color: #a0a0a5; font-weight: 500; margin-bottom: 15px;">ModSquad</h5>
-                    <p style="font-size: 0.95rem; color: #8a8a8f; line-height: 1.6;">Provided real-time operational support and coaching to agents while strictly monitoring schedule adherence and performance standards. Compiled comprehensive shift reports to proactively identify and escalate operational trends, risks, and recurring issues.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <div class="time-badge">Jan 2022 - Nov 2022 (10 m)</div>
-                    <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 5px;">Junior Customer Resolution Specialist - Tier 2 (TSR)</h4>
-                    <h5 style="font-size: 1.05rem; color: #a0a0a5; font-weight: 500; margin-bottom: 15px;">SupportNinja</h5>
-                    <p style="font-size: 0.95rem; color: #8a8a8f; line-height: 1.6;">Managed Tier 2 support for DoubleGood.com via inbound, outbound, and email channels, expertly resolving complex order, billing, and technical app/web issues. Handled escalated cases from Tier 1 specialists to ensure timely resolution using specialized tools like Kustomer, Aircall, PopSQL, ShipStation, Swagger, and Slack.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <div class="time-badge">May 2021 - Jan 2022 (8 m)</div>
-                    <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 5px;">Customer Resolution Specialist - Tier 1 (CSR)</h4>
-                    <h5 style="font-size: 1.05rem; color: #a0a0a5; font-weight: 500; margin-bottom: 15px;">SupportNinja</h5>
-                    <p style="font-size: 0.95rem; color: #8a8a8f; line-height: 1.6;">Delivered phone and email support for e-commerce brands, assisting with order status, product inquiries, and case tracking. Provided technical troubleshooting and documented interactions to maintain high-quality resolution standards.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <div class="time-badge">Nov 2020 - Apr 2021 (5 m)</div>
-                    <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 5px;">Technical Support Specialist</h4>
-                    <h5 style="font-size: 1.05rem; color: #a0a0a5; font-weight: 500; margin-bottom: 15px;">SupportNinja</h5>
-                    <p style="font-size: 0.95rem; color: #8a8a8f; line-height: 1.6;">Resolved technical and access-related discrepancies for global e-learning platforms via email and CRM tools. Managed billing inquiries using Stripe, ensuring all documented resolutions met strict service quality standards.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <div class="time-badge">Oct 2019 - Oct 2020 (1 yr, 0 m)</div>
-                    <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 5px;">Customer Service Specialist</h4>
-                    <h5 style="font-size: 1.05rem; color: #a0a0a5; font-weight: 500; margin-bottom: 15px;">TELUS International Philippines</h5>
-                    <p style="font-size: 0.95rem; color: #8a8a8f; line-height: 1.6;">Managed mobility account support, overseeing billing, service renewals, and account activations via CRM systems. Resolved complex customer concerns while maintaining high service quality and strict adherence to operational compliance.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <div class="time-badge">May 2019 - Oct 2019 (5 m)</div>
-                    <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 5px;">Customer Service Specialist</h4>
-                    <h5 style="font-size: 1.05rem; color: #a0a0a5; font-weight: 500; margin-bottom: 15px;">Concentrix</h5>
-                    <p style="font-size: 0.95rem; color: #8a8a8f; line-height: 1.6;">Delivered comprehensive inbound support for AT&T ADSL customers by managing technical assistance, billing inquiries, and CRM documentation to maximize satisfaction. Boosted revenue through proactive upselling, new account activations, contract renewals, and efficient order tracking.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <div class="time-badge">Nov 2016 - Apr 2019 (2 yrs, 5 m)</div>
-                    <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 5px;">Customer Service Specialist</h4>
-                    <h5 style="font-size: 1.05rem; color: #a0a0a5; font-weight: 500; margin-bottom: 15px;">Telus International</h5>
-                    <p style="font-size: 0.95rem; color: #8a8a8f; line-height: 1.6;">Delivered technical and sales support for AOL subscribers, resolving email access and connectivity issues over the phone. Guided customers through software troubleshooting and account management while meeting rigorous documentation standards.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <div class="time-badge">Nov 2015 - Nov 2016 (1 yr, 0 m)</div>
-                    <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 5px;">Technical Support Specialist</h4>
-                    <h5 style="font-size: 1.05rem; color: #a0a0a5; font-weight: 500; margin-bottom: 15px;">Teleperformance</h5>
-                    <p style="font-size: 0.95rem; color: #8a8a8f; line-height: 1.6;">Delivered email-based technical assistance for consumer electronics, assisting with product setup and complex issue resolution. Guided users through hardware and software troubleshooting while maintaining high service quality and strict adherence to guidelines.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <div class="time-badge">Mar 2014 - Oct 2015 (1 yr, 7 m)</div>
-                    <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 5px;">Technical Support Specialist</h4>
-                    <h5 style="font-size: 1.05rem; color: #a0a0a5; font-weight: 500; margin-bottom: 15px;">Teleperformance</h5>
-                    <p style="font-size: 0.95rem; color: #8a8a8f; line-height: 1.6;">Provided real-time chat and email support for mobility customers, managing service activations and account security changes. Balanced high-volume inquiries during peak hours while ensuring documented interactions met compliance and quality standards.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-dot"></div>
-                    <div class="time-badge">Sep 2013 - Feb 2014 (5 m)</div>
-                    <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 5px;">Customer Service Representative</h4>
-                    <h5 style="font-size: 1.05rem; color: #a0a0a5; font-weight: 500; margin-bottom: 15px;">iQor</h5>
-                    <p style="font-size: 0.95rem; color: #8a8a8f; line-height: 1.6;">Managed inbound sales and order entry for catalog retail, leveraging upselling techniques to maximize order value. Resolved out-of-stock issues by offering alternative product solutions to ensure a positive buyer experience.</p>
-                </div>
-            </div>
+    <!-- Video Player Window Frame -->
+    <div class="w-full bg-panelBg rounded-2xl border border-white/5 overflow-hidden shadow-2xl mb-12">
+        <div class="p-4 bg-black/40 border-b border-white/5 flex items-center justify-between">
+            <span class="text-xs font-mono text-accentBlue flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-accentCyan animate-pulse"></span> Commendation Video
+            </span>
         </div>
-        <div style="position: absolute; bottom: 20px; right: 5%; font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px;">Page | 04</div>
+        <div class="aspect-video w-full bg-neutral-950 relative flex items-center justify-center">
+            <!-- Insert Google Drive Embed URL Stream link below directly inside src -->
+            <iframe class="w-full h-full" src="https://drive.google.com/file/d/1xE_tMCfpdZjiXO8qMOI2uV5W57q545G_/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
     </div>
 
-<!-- PAGE 5: Client Testimonials & Customer Feedback Section -->
-    <!-- PAGE 5: Client Testimonials & Customer Feedback Section -->
-    <!-- PAGE 5: Client Testimonials & Customer Feedback Section -->
-    <div id="testimonials" style="background-color: #121314; min-height: auto; width: 100vw; display: flex; align-items: flex-start; padding: 100px 8% 100px 8%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03);">
-        <div style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px;">
-            
-            <div style="margin-bottom: 0;">
-                <h3 style="font-size: 0.85rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Social Proof</h3>
-                <h2 style="font-size: 4rem; font-weight: 700; letter-spacing: -2px; line-height: 1.1;">Testimonials</h2>
-                <div style="width: 80px; height: 2px; background-color: rgba(255, 255, 255, 0.2); margin-top: 15px;"></div>
+    <!-- TESTIMONIAL CAROUSEL SLIDER ENGINE -->
+    <div class="w-full bg-panelBg rounded-2xl border border-white/5 p-6 relative">
+        <div class="p-4 bg-black/40 border-b border-white/5 flex items-center justify-between pb-4 mb-6">
+            <span id="slider-category-title" class="text-xs font-mono uppercase tracking-widest text-accentBlue">1. Client Commendations</span>
+            <div class="flex items-center gap-2">
+                <button onclick="slidePrev()" class="p-2 rounded-lg bg-neutral-900 border border-white/5 text-neutral-400 hover:text-white transition-colors">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </button>
+                <button onclick="slideNext()" class="p-2 rounded-lg bg-neutral-900 border border-white/5 text-neutral-400 hover:text-white transition-colors">
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
             </div>
+        </div>
 
-            <div style="display: flex; flex-direction: column; gap: 35px; width: 100%;">
+        <div class="relative overflow-hidden min-h-[160px]">
+            <!-- Slide 1: Client Commendations (Stacked Workspace/Slack Layout like image_f5dd4c.png) -->
+            <div id="testimonial-slide-0" class="testimonial-slide transition-opacity duration-300 block">
+                <p class="text-base text-neutral-300 italic font-light leading-relaxed mb-6">
+                    Direct operational logs and workspace team updates highlighting cross-functional leadership, problem-solving agility, and administrative praise.
+                </p>
                 
-                <div style="display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 800px; margin: 0 auto;">
-                    <h4 style="font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 0;">Video Endorsement</h4>
+                <!-- Vertical Stack Container for Workspace Screenshots -->
+                <div class="space-y-6 max-w-3xl mx-auto mt-4">
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-2">
+                        <img src="commendation1.jpg" alt="Workspace Commendation Detail 1" class="w-full h-auto object-contain rounded-lg">
+                    </div>
+                    <!-- Two column grid layout for horizontal screenshot pairs -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-2">
+                            <img src="commendation2.jpg" alt="Workspace Commendation Detail 2" class="w-full h-auto object-contain rounded-lg">
+                        </div>
+                        <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-2">
+                            <img src="commendation4.jpg" alt="Workspace Commendation Detail 4" class="w-full h-auto object-contain rounded-lg">
+                        </div>
+                    </div>
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-2">
+                        <img src="commendation3.jpg" alt="Workspace Commendation Detail 3" class="w-full h-auto object-contain rounded-lg">
+                    </div>
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-2">
+                        <img src="commendation5.jpg" alt="Workspace Commendation Detail 5" class="w-full h-auto object-contain rounded-lg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Customer Feedback Panels (Multi-Grid Layout like image_f5dde4.png) -->
+            <div id="testimonial-slide-1" class="testimonial-slide transition-opacity duration-300 hidden">
+                <p class="text-base text-neutral-300 italic font-light leading-relaxed mb-6">
+                    Verified client satisfaction metrics and text reviews submitted through support communication tracking channels.
+                </p>
+
+                <!-- Responsive Grid Setup matching the survey logs -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-1.5"><img src="feedback1.jpg" alt="Customer Feedback 1" class="w-full h-auto object-contain rounded-lg"></div>
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-1.5"><img src="feedback2.jpg" alt="Customer Feedback 2" class="w-full h-auto object-contain rounded-lg"></div>
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-1.5"><img src="feedback3.jpg" alt="Customer Feedback 3" class="w-full h-auto object-contain rounded-lg"></div>
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-1.5"><img src="feedback4.jpg" alt="Customer Feedback 4" class="w-full h-auto object-contain rounded-lg"></div>
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-1.5"><img src="feedback5.jpg" alt="Customer Feedback 5" class="w-full h-auto object-contain rounded-lg"></div>
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-1.5"><img src="feedback6.jpg" alt="Customer Feedback 6" class="w-full h-auto object-contain rounded-lg"></div>
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-1.5"><img src="feedback7.jpg" alt="Customer Feedback 7" class="w-full h-auto object-contain rounded-lg"></div>
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-1.5"><img src="feedback11.jpg" alt="Customer Feedback 8" class="w-full h-auto object-contain rounded-lg"></div>
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-1.5"><img src="feedback9.jpg" alt="Customer Feedback 9" class="w-full h-auto object-contain rounded-lg"></div>
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-1.5"><img src="feedback10.jpg" alt="Customer Feedback 10" class="w-full h-auto object-contain rounded-lg"></div>
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-1.5"><img src="feedback8.jpg" alt="Customer Feedback 11" class="w-full h-auto object-contain rounded-lg"></div>
                     
-                    <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 20px;">
-                        <div class="embed-video-container" style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 4px; background: #000;">
-                            <iframe src="https://drive.google.com/file/d/1xE_tMCfpdZjiXO8qMOI2uV5W57q545G_/preview" allow="autoplay" referrerpolicy="no-referrer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
-                        </div>
-                        <div style="margin-top: 15px;">
-                            <h5 style="font-size: 1.2rem; font-weight: 600; color: #ffffff;">Commendation</h5>
-                            <p style="font-size: 0.9rem; color: #2dd4bf; margin-top: 4px;">Quarterly Meeting</p>
-                        </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: KPI Metrics Sheets & Quality Audit Logs (Balanced Matrix like image_f5de5a.png) -->
+            <div id="testimonial-slide-2" class="testimonial-slide transition-opacity duration-300 hidden">
+                <div class="space-y-2 mb-6">
+                    <div class="flex justify-between text-xs font-mono border-b border-white/5 pb-2 text-accentCyan">
+                        <span>Phone & Email Quality Audit Parameter</span><span>Score Level</span>
                     </div>
+                    <div class="flex justify-between text-sm text-neutral-300"><span>Zendesk Response Empathy/Tone Accuracy</span><span class="text-emerald-400">98.4%</span></div>
+                    <div class="flex justify-between text-sm text-neutral-300"><span>First Contact Resolution (FCR)</span><span class="text-accentCyan">94.1%</span></div>
+                    <div class="flex justify-between text-sm text-neutral-300"><span>Average Customer Satisfaction Rating (CSAT)</span><span class="text-purple-400">4.95 / 5.0</span></div>
                 </div>
 
-                <div style="display: flex; flex-direction: column; gap: 15px; width: 100%; position: relative;">
-                    <h4 style="font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 0;">Performance Evidence</h4>
-                    
-                    <div class="gallery-slider-box" style="position: relative; width: 100%; padding-top: 10px;">
+                <!-- Structured Audit Report Data Layout -->
+                <div class="space-y-6 mt-6">
+                    <!-- Top Summary Sheet Grid Rows -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-2">
+                            <img src="KPI 1.jpg" alt="Zendesk Analytical Summary Data 1" class="w-full h-auto object-contain rounded-lg">
+                        </div>
+                        <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40 p-2">
+                            <img src="KPI 2.jpg" alt="Zendesk Analytical Summary Data 2" class="w-full h-auto object-contain rounded-lg">
+                        </div>
+                    </div>
+
+                    <!-- Individual Core Breakdown Cards Sub-grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <div class="overflow-hidden rounded-lg border border-white/5 bg-neutral-900/20 p-1"><img src="KPI 3.jpg" alt="Metrics Sheet Detail 3" class="w-full h-auto object-contain rounded"></div>
+                        <div class="overflow-hidden rounded-lg border border-white/5 bg-neutral-900/20 p-1"><img src="KPI 4.jpg" alt="Metrics Sheet Detail 4" class="w-full h-auto object-contain rounded"></div>
+                        <div class="overflow-hidden rounded-lg border border-white/5 bg-neutral-900/20 p-1"><img src="KPI 5.jpg" alt="Metrics Sheet Detail 5" class="w-full h-auto object-contain rounded"></div>
+                        <div class="overflow-hidden rounded-lg border border-white/5 bg-neutral-900/20 p-1"><img src="KPI 6.jpg" alt="Metrics Sheet Detail 6" class="w-full h-auto object-contain rounded"></div>
+                        <div class="overflow-hidden rounded-lg border border-white/5 bg-neutral-900/20 p-1"><img src="KPI 7.jpg" alt="Metrics Sheet Detail 7" class="w-full h-auto object-contain rounded"></div>
+                        <div class="overflow-hidden rounded-lg border border-white/5 bg-neutral-900/20 p-1"><img src="KPI 8.jpg" alt="Metrics Sheet Detail 8" class="w-full h-auto object-contain rounded"></div>
                         
-                        <div class="slider-scroll-track" id="galleryTrack" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 40px; scrollbar-width: none; -ms-overflow-style: none;">
-                            
-                            <!-- SUB-NODE 1: CLIENT COMMENDATIONS -->
-                            <div class="slider-node" style="flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 20px;">
-                                
-                                <div style="position: relative; display: flex; justify-content: space-between; align-items: flex-start; width: 100%; gap: 30px;">
-                                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                                        <div style="font-size: 1rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; line-height: 1.2;">1. Client Commendations</div>
-                                        <p style="font-size: 0.95rem; color: #a0a0a5; line-height: 1.5; margin: 0; max-width: 750px;">Direct operational logs and workspace team updates highlighting cross-functional leadership, problem-solving agility, and administrative praise.</p>
-                                    </div>
-                                    
-                                    <div class="slider-controls" style="display: flex; gap: 12px; z-index: 100; height: 40px; align-items: center; flex-shrink: 0;">
-                                        <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: -1000, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid #2dd4bf; color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease-in-out; font-size: 1rem; box-shadow: 0 0 12px rgba(45, 212, 191, 0.35); text-shadow: 0 0 4px #fff;">⟵</button>
-                                        <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: 1000, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid #2dd4bf; color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease-in-out; font-size: 1rem; box-shadow: 0 0 12px rgba(45, 212, 191, 0.35); text-shadow: 0 0 4px #fff;">⟶</button>
-                                    </div>
-                                </div>
-
-                                <div style="display: flex; flex-direction: column; gap: 20px; background: #1c1d1f; padding: 25px; border-radius: 8px;">
-                                    <div style="width: 100%; display: flex; justify-content: center;">
-                                        <img src="commendation1.jpg" style="width: 85%; max-width: 85%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 1">
-                                    </div>
-
-                                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: center;">
-                                        <div>
-                                            <img src="commendation2.jpg" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 2">
-                                        </div>
-                                        <div style="display: flex; justify-content: center; width: 100%;">
-                                            <img src="commendation4.jpg" style="width: 80%; max-width: 80%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 4">
-                                        </div>
-                                    </div>
-
-                                    <div style="width: 100%; display: flex; justify-content: center;">
-                                        <img src="commendation3.jpg" style="width: 85%; max-width: 85%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 3">
-                                    </div>
-
-                                    <div style="width: 100%; display: flex; justify-content: center;">
-                                        <img src="commendation5.jpg" style="width: 85%; max-width: 85%; border-radius:6px; border:1px solid rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2);" alt="Commendation 5">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SUB-NODE 2: CUSTOMER FEEDBACK SURVEYS -->
-                            <div class="slider-node" style="flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 20px;">
-                                
-                                <div style="position: relative; display: flex; justify-content: space-between; align-items: flex-start; width: 100%; gap: 30px;">
-                                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                                        <div style="font-size: 1rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; line-height: 1.2;">2. Customer Feedback Surveys</div>
-                                        <p style="font-size: 0.95rem; color: #a0a0a5; line-height: 1.5; margin: 0; max-width: 750px;">Verified external user surveys and individual feedback milestones documenting timeline management adherence and user case satisfaction logs.</p>
-                                    </div>
-                                    
-                                    <div class="slider-controls" style="display: flex; gap: 12px; z-index: 100; height: 40px; align-items: center; flex-shrink: 0;">
-                                        <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: -1000, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid #2dd4bf; color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease-in-out; font-size: 1rem; box-shadow: 0 0 12px rgba(45, 212, 191, 0.35); text-shadow: 0 0 4px #fff;">⟵</button>
-                                        <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: 1000, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid #2dd4bf; color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease-in-out; font-size: 1rem; box-shadow: 0 0 12px rgba(45, 212, 191, 0.35); text-shadow: 0 0 4px #fff;">⟶</button>
-                                    </div>
-                                </div>
-
-                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: #1c1d1f; padding: 25px; border-radius: 8px;">
-                                    <img src="feedback1.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 1">
-                                    <img src="feedback2.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 2">
-                                    <img src="feedback3.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 3">
-                                    <img src="feedback4.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 4">
-                                    <img src="feedback5.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 5">
-                                    <img src="feedback6.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 6">
-                                    <img src="feedback7.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 7">
-                                    <img src="feedback10.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 8">
-                                    <img src="feedback9.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 9">
-                                    <img src="feedback8.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 10">
-                                    <img src="feedback12.jpg" style="width:100%; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Feedback 12">
-                                </div>
-                            </div>
-
-                            <!-- SUB-NODE 3: KPI METRICS DATA -->
-                            <div class="slider-node" style="flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 20px;">
-                                
-                                <div style="position: relative; display: flex; justify-content: space-between; align-items: flex-start; width: 100%; gap: 30px;">
-                                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                                        <div style="font-size: 1rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; line-height: 1.2;">3. KPI Metrics Data</div>
-                                        <p style="font-size: 0.95rem; color: #a0a0a5; line-height: 1.5; margin: 0; max-width: 750px;">Analytical dash performance logs, task accuracy scorecards, and system sync timeline validations demonstrating operational metrics tracking.</p>
-                                    </div>
-                                    
-                                    <div class="slider-controls" style="display: flex; gap: 12px; z-index: 100; height: 40px; align-items: center; flex-shrink: 0;">
-                                        <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: -1000, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid #2dd4bf; color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease-in-out; font-size: 1rem; box-shadow: 0 0 12px rgba(45, 212, 191, 0.35); text-shadow: 0 0 4px #fff;">⟵</button>
-                                        <button class="ctrl-arrow" onclick="document.getElementById('galleryTrack').scrollBy({left: 1000, behavior: 'smooth'})" style="background: #1c1d1f; border: 1px solid #2dd4bf; color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease-in-out; font-size: 1rem; box-shadow: 0 0 12px rgba(45, 212, 191, 0.35); text-shadow: 0 0 4px #fff;">⟶</button>
-                                    </div>
-                                </div>
-
-                                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; background: #1c1d1f; padding: 25px; border-radius: 8px;">
-                                    <img src="KPI 1.jpg" style="width:100% !important; grid-column: span 2; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 1">
-                                    <img src="KPI 2.jpg" style="width:100% !important; grid-column: span 2; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 2">
-                                    <img src="KPI 3.jpg" style="width:100% !important; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 3">
-                                    <img src="KPI 7.jpg" style="width:100% !important; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 4">
-                                    <img src="KPI 5.jpg" style="width:100% !important; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 5">
-                                    <img src="KPI 6.jpg" style="width:100% !important; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 6">
-                                    <img src="KPI 4.jpg" style="width:100% !important; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 7">
-                                    <img src="KPI 8.jpg" style="width:100% !important; border-radius:6px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="KPI 8">
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-        
-        <div style="position: absolute; bottom: 20px; right: 5%; font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px;">Page | 05</div>
-    </div>
-</div>
-</div>
-    </div> <!-- CLOSED GALLERY SCROLL -->
-</div> <!-- CLOSED TESTIMONIAL GRID -->
-</div> <!-- CLOSED TESTIMONIAL MAIN SLIDER NODE -->
-
-
-<!-- ─────────── INSERT THE NEW CODES DIRECTLY HERE ─────────── -->
-                        
-<!-- ================= PAGE 06: CREDENTIALS & EXPERTISE ================= -->
-<section id="certificates" style="background-color: #121314; min-height: auto; width: 100vw; display: flex; align-items: flex-start; padding: 100px 8% 120px 8%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-    
-    <div style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px;">
-        
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-            <span style="font-size: 0.85rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin: 0;">Verified Credentials</span>
-            <h2 style="font-size: 2.5rem; font-weight: 700; color: #ffffff; margin: 0; letter-spacing: -1px;">Licenses & Certifications</h2>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; width: 100%;">
-            
-            <a href="https://verify.skilljar.com/c/arvrzh4t4npe" target="_blank" style="text-decoration: none; background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 8px; padding: 25px; display: flex; gap: 20px; transition: transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='rgba(45, 212, 191, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.04)';">
-                <div style="width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background-color: rgba(255,255,255,0.03); border-radius: 6px;">
-                    <img src="ai-skills.png" alt="ClickUp Logo" style="width: 28px; height: 28px; object-fit: contain;">
-                </div>
-                <div style="display: flex; flex-direction: column; gap: 6px;">
-                    <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 0; line-height: 1.3;">ClickUp Advanced AI Certificate of Completion</h4>
-                    <p style="font-size: 0.9rem; color: #a0a0a5; margin: 0;">ClickUp</p>
-                    <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin: 0;">Issued May 2026</p>
-                    <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
-                        <span style="font-size: 0.8rem; color: #2dd4bf; font-family: monospace;">ID: arvrzh4t4npe</span>
-                        <span style="font-size: 0.75rem; color: rgba(255,255,255,0.3);">• Verify ↗</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://verify.skilljar.com/c/5cz5u5rsbpyf" target="_blank" style="text-decoration: none; background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 8px; padding: 25px; display: flex; gap: 20px; transition: transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='rgba(45, 212, 191, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.04)';">
-                <div style="width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background-color: rgba(255,255,255,0.03); border-radius: 6px;">
-                    <img src="intermediate.png" alt="ClickUp Logo" style="width: 28px; height: 28px; object-fit: contain;">
-                </div>
-                <div style="display: flex; flex-direction: column; gap: 6px;">
-                    <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 0; line-height: 1.3;">Build Your First Workflow (Intermediate)</h4>
-                    <p style="font-size: 0.9rem; color: #a0a0a5; margin: 0;">ClickUp</p>
-                    <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin: 0;">Issued May 2026</p>
-                    <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
-                        <span style="font-size: 0.8rem; color: #2dd4bf; font-family: monospace;">ID: 5cz5u5rsbpyf</span>
-                        <span style="font-size: 0.75rem; color: rgba(255,255,255,0.3);">• Verify ↗</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://verify.skilljar.com/c/7y9c8oxhadq2" target="_blank" style="text-decoration: none; background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 8px; padding: 25px; display: flex; gap: 20px; transition: transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='rgba(45, 212, 191, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.04)';">
-                <div style="width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background-color: rgba(255,255,255,0.03); border-radius: 6px;">
-                    <img src="novice.png" alt="ClickUp Logo" style="width: 28px; height: 28px; object-fit: contain;">
-                </div>
-                <div style="display: flex; flex-direction: column; gap: 6px;">
-                    <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 0; line-height: 1.3;">ClickUp Novice Certificate of Completion</h4>
-                    <p style="font-size: 0.9rem; color: #a0a0a5; margin: 0;">ClickUp</p>
-                    <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin: 0;">Issued May 2026</p>
-                    <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
-                        <span style="font-size: 0.8rem; color: #2dd4bf; font-family: monospace;">ID: 7y9c8oxhadq2</span>
-                        <span style="font-size: 0.75rem; color: rgba(255,255,255,0.3);">• Verify ↗</span>
-                    </div>
-                </div>
-            </a>
-
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; width: 100%;">
-            
-            <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                <div>
-                    <span style="font-size: 0.7rem; color: #2dd4bf; background: rgba(45, 212, 191, 0.1); padding: 4px 8px; border-radius: 4px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Core Expertise</span>
-                    <h4 style="font-size: 1.15rem; color: #ffffff; font-weight: 600; margin: 15px 0 6px 0;">Executive Communications & Inbox Triage</h4>
-                    <p style="font-size: 0.85rem; color: #a0a0a5; line-height: 1.4; margin: 0;">Advanced digital gatekeeping, high-priority correspondence filtering, action-item isolation, and professional stakeholder correspondence management.</p>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px; font-size: 0.75rem;">
-                    <span style="color: rgba(255,255,255,0.4);">Focus: <strong style="color: #2dd4bf; font-weight: 500;">Digital Gatekeeping</strong></span>
-                </div>
-            </div>
-
-            <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                <div>
-                    <span style="font-size: 0.7rem; color: #2dd4bf; background: rgba(45, 212, 191, 0.1); padding: 4px 8px; border-radius: 4px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Core Expertise</span>
-                    <h4 style="font-size: 1.15rem; color: #ffffff; font-weight: 600; margin: 15px 0 6px 0;">Calendar Optimization & Schedule Gatekeeping</h4>
-                    <p style="font-size: 0.85rem; color: #a0a0a5; line-height: 1.4; margin: 0;">Complex multi-timezone calendar scheduling, focus-hour preservation methods, conflict prevention logic, and executive travel mapping.</p>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px; font-size: 0.75rem;">
-                    <span style="color: rgba(255,255,255,0.4);">Focus: <strong style="color: #2dd4bf; font-weight: 500;">Time Protection</strong></span>
-                </div>
-            </div>
-
-            <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                <div>
-                    <span style="font-size: 0.7rem; color: #2dd4bf; background: rgba(45, 212, 191, 0.1); padding: 4px 8px; border-radius: 4px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Core Expertise</span>
-                    <h4 style="font-size: 1.15rem; color: #ffffff; font-weight: 600; margin: 15px 0 6px 0;">High-Trust Stakeholder Liaison Management</h4>
-                    <p style="font-size: 0.85rem; color: #a0a0a5; line-height: 1.4; margin: 0;">Confidential client communications, high-profile relationship management, discrete issue escalation, and executive presence alignment.</p>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px; font-size: 0.75rem;">
-                    <span style="color: rgba(255,255,255,0.4);">Focus: <strong style="color: #2dd4bf; font-weight: 500;">Absolute Discretion</strong></span>
-                </div>
-            </div>
-
         </div>
     </div>
-
-    <div style="position: absolute; bottom: 20px; right: 5%; font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px;">Page | 06</div>
-</section>                      
-                        
-<!-- PAGE 7: Technical Infrastructure Landing Page -->
-
-<div id="infrastructure" style="background-color: #121314; min-height: auto; width: 100vw; display: flex; align-items: flex-start; padding: 60px 8% 80px 8%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03);">
-    <div style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px;">
-        
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; width: 100%;">
-            <div style="flex: 1;">
-                <h3 style="font-size: 0.85rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Workstation Setup</h3>
-                <h2 style="font-size: 4rem; font-weight: 700; letter-spacing: -2px; line-height: 1.1; color: #ffffff; margin: 0;">Technical Infrastructure</h2>
-                <div style="width: 80px; height: 2px; background-color: rgba(255, 255, 255, 0.2); margin-top: 15px;"></div>
-            </div>
-            <div style="flex: 1; max-width: 500px; padding-top: 25px;">
-                <p style="font-size: 0.95rem; color: #a0a0a5; line-height: 1.6; margin: 0; text-align: right;">
-                    High-availability production environment configured for uninterrupted uptime, low-latency communication networks, and reliable workflow execution data.
+</section>
+<!-- ================= CONTACT/CTA PAGE ================= -->
+        <section id="page-contact" class="page-viewport -mt-12 pb-0 mb-[-4rem]">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-mono text-accentCyan uppercase tracking-widest">Next Steps</span>
+                <h2 class="text-4xl font-bold text-accentBlue/50 mt-2 mb-4 tracking-tight">Ready to optimize your support queues?</h2>
+                <p class="text-neutral-400 font-light text-sm max-w-md mx-auto">
+                    Let's streamline your ticket incoming rates, maximize CSAT metrics, and anchor your multi-channel operational delivery. Reach out today.
                 </p>
             </div>
-        </div>
 
-<div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 30px; width: 100%; margin-top: 10px;">
-            
-            <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
-                <div style="position: relative; width: 100%; aspect-ratio: 4/3; background: #121314; border-radius: 6px; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
-                    
-                    <!-- Left Arrow Control -->
-                    <button onclick="changeInfraSlide(-1)" style="position: absolute; left: 10px; background: rgba(0,0,0,0.5); color: #fff; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; z-index: 5; font-weight: bold; font-size: 1.2rem;">‹</button>
-                    
-                    <!-- Corrected Slide Asset Matrix Layers (Starts on System Specs 1) -->
-                    <img id="infra-slide-1" src="System Specs-1.JPG" style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: block;" alt="System Specs Sheet Page-1">
-                    <img id="infra-slide-2" src="System Specs-2.JPG" style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: none;" alt="System Specs Sheet Page-2">
-                    <img id="infra-slide-3" src="Speed Test 6-22-2026.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: none;" alt="Network Speed Proof Verification">
-                    <img id="infra-slide-4" src="HomeOffice1.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: none;" alt="Main Home Office Setup">
-                    <img id="infra-slide-5" src="HomeOffice2.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: none;" alt="Alternative Workspace View">
-                    <img id="infra-slide-6" src="HomeOffice3.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: none;" alt="Desk Peripherals Focus">
-                    <img id="infra-slide-7" src="HeadSetWithNoiseCancelling1.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: none;" alt="Audio Peripherals Setup A">
-                    <img id="infra-slide-8" src="HeadSetWithNoiseCancelling2.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: none;" alt="Audio Peripherals Setup B">
-
-                    <!-- Right Arrow Control -->
-                    <button onclick="changeInfraSlide(1)" style="position: absolute; right: 10px; background: rgba(0,0,0,0.5); color: #fff; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; z-index: 5; font-weight: bold; font-size: 1.2rem;">›</button>
-                </div>
+            <!-- Premium Quick Link Integration Grid Matrix -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                 
-                <div style="text-align: center;">
-                    <div style="display: flex; justify-content: center; gap: 6px; margin-bottom: 15px;">
-                        <!-- 8 Progress Indicators to match the new slide total -->
-                        <span class="infra-dot" style="width: 6px; height: 6px; background-color: #2dd4bf; border-radius: 50%;"></span>
-                        <span class="infra-dot" style="width: 6px; height: 6px; background-color: rgba(255,255,255,0.2); border-radius: 50%;"></span>
-                        <span class="infra-dot" style="width: 6px; height: 6px; background-color: rgba(255,255,255,0.2); border-radius: 50%;"></span>
-                        <span class="infra-dot" style="width: 6px; height: 6px; background-color: rgba(255,255,255,0.2); border-radius: 50%;"></span>
-                        <span class="infra-dot" style="width: 6px; height: 6px; background-color: rgba(255,255,255,0.2); border-radius: 50%;"></span>
-                        <span class="infra-dot" style="width: 6px; height: 6px; background-color: rgba(255,255,255,0.2); border-radius: 50%;"></span>
-                        <span class="infra-dot" style="width: 6px; height: 6px; background-color: rgba(255,255,255,0.2); border-radius: 50%;"></span>                     
-                        <span class="infra-dot" style="width: 6px; height: 6px; background-color: rgba(255,255,255,0.2); border-radius: 50%;"></span>
+                <!-- 1. LinkedIn Anchor Card (Centered) -->
+                <a href="https://www.linkedin.com/in/sherrylandrade/" target="_blank" class="p-8 rounded-2xl bg-panelBg border border-white/5 hover:border-accentCyan/40 transition-all group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-xl bg-accentBlue/10 flex items-center justify-center text-accentBlue mb-6 group-hover:scale-105 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accentBlue">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
                     </div>
-                    <p style="font-size: 0.85rem; color: #a0a0a5; line-height: 1.5; margin: 0;">
-                        Monitored workstation architecture running active desktop process isolation matrix and high-fidelity voice parameters.
-                    </p>
-                </div>
+                    <h3 class="text-md font-semibold text-white mb-1">Professional Network</h3>
+                    <p class="text-xs text-neutral-500 mb-6">Connect on LinkedIn</p>
+                    <span class="text-xs font-medium text-accentBlue flex items-center gap-1 group-hover:underline">
+                        View Profile <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                    </span>
+                </a>
+
+                <!-- 2. Email Hook Connection Card (Centered) -->
+                <a href="mailto:sherryl.andrade@gmail.com" class="p-8 rounded-2xl bg-panelBg border border-white/5 hover:border-accentCyan/40 transition-all group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-xl bg-accentCyan/10 flex items-center justify-center text-accentCyan mb-6 group-hover:scale-105 transition-transform">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-md font-semibold text-white mb-1">Business Inquiries</h3>
+                    <p class="text-xs text-neutral-500 mb-6">Send an Email</p>
+                    <span class="text-xs font-medium text-accentCyan flex items-center gap-1 group-hover:underline">
+                        Write Message <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                    </span>
+                </a>
+
+                <!-- 3. Direct Line Card (WhatsApp) (Centered) -->
+                <a href="https://wa.me/+639695364754" target="_blank" class="p-8 rounded-2xl bg-panelBg border border-white/5 hover:border-accentCyan/40 transition-all group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-105 transition-transform">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-md font-semibold text-white mb-1">Direct Line</h3>
+                    <p class="text-xs text-neutral-500 mb-6">Call or Message</p>
+                    <span class="text-xs font-medium text-emerald-400 flex items-center gap-1 group-hover:underline">
+                        Open WhatsApp <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                    </span>
+                </a>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+
+            <!-- Separator Line (Gap 3 reduced by 15%) -->
+            <div class="w-full h-[1px] bg-white/5 mt-10 mb-5"></div>
+
+            <!-- Customer Service Phone & Email Support Alignment Value Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto px-4">
                 
-                <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
-                    <div style="color: #2dd4bf; font-size: 1.2rem;">⚙️</div>
-                    <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 0;">System Specifications</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: #a0a0a5;">
-                        <li>• <strong style="color: #ffffff;">OS:</strong> Windows 11 System</li>
-                        <li>• <strong style="color: #ffffff;">CPU:</strong> Intel i5-9300H (2.40 GHz)</li>
-                        <li>• <strong style="color: #ffffff;">RAM:</strong> 12GB Capacity</li>
-                    </ul>
+                <!-- Pillar 1: Omni-Channel Presence -->
+                <div class="flex flex-col items-center">
+                    <div class="text-orange-400 mb-3">
+                        <i data-lucide="phone-call" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-sm font-semibold text-white tracking-wide mb-1">First-Contact Resolution</h4>
+                    <p class="text-xs text-neutral-400 leading-relaxed max-w-xs">Anticipating user needs over phone and chat to close tickets accurately on the first touch.</p>
                 </div>
 
-                <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
-                    <div style="color: #2dd4bf; font-size: 1.2rem;">📡</div>
-                    <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 0;">Primary Network Link</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: #a0a0a5;">
-                        <li>• <strong style="color: #ffffff;">Link:</strong> Starlink Satellite</li>
-                        <li>• <strong style="color: #ffffff;">Speed:</strong> 100+ Mbps Dn / 25+ Up</li>
-                        <li>• <strong style="color: #ffffff;">Core:</strong> Wired Ethernet Connection</li>
-                    </ul>
+                <!-- Pillar 2: Email Queue Mastery -->
+                <div class="flex flex-col items-center">
+                    <div class="text-accentCyan mb-3">
+                        <i data-lucide="mail-check" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-sm font-semibold text-white tracking-wide mb-1">Inbox Zero Strategy</h4>
+                    <p class="text-xs text-neutral-400 leading-relaxed max-w-xs">Structured, thorough handling of complex Tier-2 inbox inquiries without sacrificing response times.</p>
                 </div>
 
-                <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
-                    <div style="color: #2dd4bf; font-size: 1.2rem;">🎧</div>
-                    <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 0;">Audio Peripherals</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: #a0a0a5;">
-                        <li>• <strong style="color: #ffffff;">Hardware:</strong> Onikuma X15 Headset</li>
-                        <li>• <strong style="color: #ffffff;">Mic:</strong> HD Noise Reduction Microphone</li>
-                    </ul>
-                </div>
-
-                <div style="background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; gap: 12px;">
-                    <div style="color: #2dd4bf; font-size: 1.2rem;">🔋</div>
-                    <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 0;">Failover Redundancies</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: #a0a0a5;">
-                        <li>• <strong style="color: #ffffff;">Battery:</strong> Blueetti Power Backup Battery</li>
-                        <li>• <strong style="color: #ffffff;">Backup Net:</strong> Mobile Hotspot Standby</li>
-                    </ul>
+                <!-- Pillar 3: SLA Alignment -->
+                <div class="flex flex-col items-center">
+                    <div class="text-emerald-400 mb-3">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-sm font-semibold text-white tracking-wide mb-1">Metric Driven Delivery</h4>
+                    <p class="text-xs text-neutral-400 leading-relaxed max-w-xs">Zero missed details, optimized handle times, and strict adherence to strict organizational SLA targets.</p>
                 </div>
 
             </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="max-w-6xl w-full mx-auto px-6 py-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-neutral-500 font-mono">
+        <div>© 2026 Sherryl Andrade | Customer Service Specialist: Phone & Email Support</div>
+        <div class="flex items-center gap-4">
+            <a href="https://linkedin.com/in/your-profile-username" target="_blank" class="hover:text-white transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
         </div>
+    </footer>
 
-    </div>
-    <div style="position: absolute; bottom: 20px; right: 5%; font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px;">Page | 07</div>
-</div>                        
-<script>
-let currentInfraIndex = 1;
+    <!-- CODE SCRIPT ROUTER AND SLIDER LOOPS -->
+    <script>
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-viewport').forEach(view => view.classList.remove('active'));
+            const targetView = document.getElementById(`page-${pageId}`);
+            if(targetView) targetView.classList.add('active');
 
-function changeInfraSlide(direction) {
-    // 1. Find all slide images that belong to the infrastructure section
-    const slides = document.querySelectorAll('[id^="infra-slide-"]');
-    const totalSlides = slides.length;
-    
-    if (totalSlides === 0) return; // Guard clause in case elements aren't loaded
-
-    // 2. Hide the currently active slide
-    const currentSlide = document.getElementById(`infra-slide-${currentInfraIndex}`);
-    if (currentSlide) {
-        currentSlide.style.display = 'none';
-    }
-
-    // 3. Calculate the next slide index (with seamless looping)
-    currentInfraIndex += direction;
-    if (currentInfraIndex > totalSlides) {
-        currentInfraIndex = 1;
-    } else if (currentInfraIndex < 1) {
-        currentInfraIndex = totalSlides;
-    }
-
-    // 4. Show the new active slide
-    const nextSlide = document.getElementById(`infra-slide-${currentInfraIndex}`);
-    if (nextSlide) {
-        nextSlide.style.display = 'block';
-    }
-
-    // 5. Update the navigation indicator dots to match
-    const dots = document.querySelectorAll('.infra-dot');
-    dots.forEach((dot, index) => {
-        if (index === (currentInfraIndex - 1)) {
-            dot.style.backgroundColor = '#2dd4bf'; // Active turquoise color
-        } else {
-            dot.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'; // Dimmed inactive color
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-white/10', 'text-white');
+                btn.classList.add('text-neutral-400');
+            });
+            const activeBtn = document.getElementById(`nav-${pageId}`);
+            if(activeBtn) {
+                activeBtn.classList.remove('text-neutral-400');
+                activeBtn.classList.add('bg-white/10', 'text-white');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    });
-}
-</script>
 
-<!-- PAGE 8: Call to Action Landing Page -->
-    
-<div id="cta-landing" style="background-color: #121314; min-height: auto; width: 100vw; display: flex; align-items: flex-start; padding: 100px 8% 100px 8%; position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03);">
-    <div style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; text-align: center;">
-        
-        <div style="max-width: 800px; display: flex; flex-direction: column; align-items: center; gap: 20px;">
-            <h3 style="font-size: 0.85rem; color: #2dd4bf; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; margin: 0;">Next Steps</h3>
-            <h2 style="font-size: 4rem; font-weight: 700; letter-spacing: -2px; line-height: 1.1; color: #ffffff; margin: 0;">Ready to reclaim your time and peace of mind?</h2>
-            <p style="font-size: 1.05rem; color: #a0a0a5; line-height: 1.6; margin: 15px 0 5px 0; max-width: 600px;">
-                Let's streamline your inbox, optimize your calendar, and protect your professional reputation. Reach out today to hand over the background noise so you can focus on the big picture.
-            </p>
-        </div>
+        let currentSlideIndex = 0;
+        const totalSlides = 3;
+        const slideTitles = [
+            "1. Client Commendations",
+            "2. Customer Feedback Surveys",
+            "3. KPI Metrics Data"
+        ];
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; max-width: 900px; margin-top: 10px;">
-            
-            <a href="https://www.linkedin.com/in/sherrylandrade/" target="_blank" style="text-decoration: none; background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 8px; padding: 30px; display: flex; flex-direction: column; align-items: center; gap: 12px; transition: transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='#2dd4bf';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.04)';">
-                <div style="width: 50px; height: 50px; background-color: rgba(45, 212, 191, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #2dd4bf; font-size: 1.5rem; font-weight: bold;">in</div>
-                <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 5px 0 0 0;">Professional Network</h4>
-                <p style="font-size: 0.85rem; color: #a0a0a5; margin: 0;">Connect on LinkedIn</p>
-                <span style="font-size: 0.8rem; color: #2dd4bf; margin-top: 5px; font-weight: 500;">View Profile →</span>
-            </a>
+        function updateSlideDisplay() {
+            document.querySelectorAll('.testimonial-slide').forEach((slide, idx) => {
+                if(idx === currentSlideIndex) {
+                    slide.classList.remove('hidden');
+                    slide.classList.add('block');
+                } else {
+                    slide.classList.remove('block');
+                    slide.classList.add('hidden');
+                }
+            });
+            document.getElementById('slider-category-title').textContent = slideTitles[currentSlideIndex];
+        }
 
-            <a href="mailto:sherryl.andrade@gmail.com" style="text-decoration: none; background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 8px; padding: 30px; display: flex; flex-direction: column; align-items: center; gap: 12px; transition: transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='#2dd4bf';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.04)';">
-                <div style="width: 50px; height: 50px; background-color: rgba(45, 212, 191, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #2dd4bf; font-size: 1.3rem;">✉️</div>
-                <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 5px 0 0 0;">Business Inquiries</h4>
-                <p style="font-size: 0.85rem; color: #a0a0a5; margin: 0;">Send an Email</p>
-                <span style="font-size: 0.8rem; color: #2dd4bf; margin-top: 5px; font-weight: 500;">Write Message →</span>
-            </a>
+        function slideNext() {
+            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+            updateSlideDisplay();
+        }
 
-            <a href="tel:+639695364754" style="text-decoration: none; background-color: #1c1d1f; border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 8px; padding: 30px; display: flex; flex-direction: column; align-items: center; gap: 12px; transition: transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='#2dd4bf';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.04)';">
-                <div style="width: 50px; height: 50px; background-color: rgba(45, 212, 191, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #2dd4bf; font-size: 1.3rem;">📞</div>
-                <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 600; margin: 5px 0 0 0;">Direct Line</h4>
-                <p style="font-size: 0.85rem; color: #a0a0a5; margin: 0;">Call or Message</p>
-                <span style="font-size: 0.8rem; color: #2dd4bf; margin-top: 5px; font-weight: 500;">Open WhatsApp →</span>
-            </a>
+        function slidePrev() {
+            currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+            updateSlideDisplay();
+        }
 
-        </div>
+        function updateSystemClock() {
+            const now = new Date();
+            document.getElementById('live-clock').textContent = now.toTimeString().split(' ')[0];
+        }
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; max-width: 900px; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px;">
-            <div style="display: flex; flex-direction: column; gap: 6px; align-items: center;">
-                <div style="color: #2dd4bf; font-size: 1.3rem; margin-bottom: 5px;">⚡</div>
-                <div style="font-size: 0.9rem; font-weight: 600; color: #ffffff;">Proactive Management</div>
-                <div style="font-size: 0.8rem; color: #a0a0a5;">Anticipating needs before they hit your desk</div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 6px; align-items: center;">
-                <div style="color: #2dd4bf; font-size: 1.3rem; margin-bottom: 5px;">🛡️</div>
-                <div style="font-size: 0.9rem; font-weight: 600; color: #ffffff;">Absolute Discretion</div>
-                <div style="font-size: 0.8rem; color: #a0a0a5;">Trusted handling of sensitive business data</div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 6px; align-items: center;">
-                <div style="color: #2dd4bf; font-size: 1.3rem; margin-bottom: 5px;">📈</div>
-                <div style="font-size: 0.9rem; font-weight: 600; color: #ffffff;">Flawless Precision</div>
-                <div style="font-size: 0.8rem; color: #a0a0a5;">Zero missed details in your schedule and inbox</div>
-            </div>
-        </div>
-
-    </div>
-    <div style="position: absolute; bottom: 20px; right: 5%; font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px;">Page | 08</div>
-</div>
-    
-    
+        document.addEventListener("DOMContentLoaded", () => {
+            lucide.createIcons();
+            updateSystemClock();
+            setInterval(updateSystemClock, 1000);
+            switchPage('home');
+        });
+    </script>
 </body>
 </html>
